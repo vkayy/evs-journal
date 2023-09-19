@@ -1,27 +1,270 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+ 
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+ 
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+ 
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+ 
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+ 
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+ 
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+ 
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+ 
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+ 
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+ 
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+ 
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+ 
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24 5.7% 82.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.page {
+  @apply min-h-screen box-border p-0 m-0 text-darkgreen dark:text-baseyellow bg-baseyellow dark:bg-stone-900
+}
+
+/* potential .page-landing, .page-blog for future */
+
+/* .page_landing {
+
+}
+
+.page_blog {
+
+} */
+
+.header {
+  @apply fixed top-0 left-0 w-screen;
+}
+
+.page__header {
+  @apply p-0 m-0;
+}
+
+.header_glass {
+  @apply z-50 bg-darkyellow/50 dark:bg-stone-800/50 backdrop-blur-md;
+}
+
+.navbar {
+  @apply flex flex-row justify-between items-center mx-auto;
+}
+
+.header__navbar {
+  @apply max-w-7xl px-8 py-4;
+}
+
+.logo {
+  @apply font-bold text-center;
+}
+
+.navbar__logo {
+  @apply pb-1 sm:pb-0 text-5xl;
+}
+
+.link-menu {
+  @apply mx-auto text-lg list-none;
+}
+
+.navbar__link-menu {
+  @apply mx-4;
+}
+
+.link-menu_axis_x {
+  @apply hidden sm:flex justify-evenly items-center gap-10;
+}
+
+.navbar__button {
+  @apply text-2xl focus:outline-none;
+}
+
+.navbar__button_axis_y {
+  @apply sm:hidden px-2;
+}
+
+.link-menu_axis_y {
+  @apply flex flex-col justify-center items-center gap-5;
+}
+
+.link-menu__item {
+  @apply text-center;
+}
+
+.link-menu__item_hover_underline {
+  @apply after:block after:w-0 after:h-0.5 after:rounded after:m-0 after:bg-darkgreen after:dark:bg-baseyellow hover:after:w-full after:transition-all after:duration-500;
+}
+
+.main {
+  @apply max-w-full mx-auto;
+}
+
+.hero-section {
+  @apply max-w-7xl h-[100vh] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 pt-24 pb-12 mx-auto mt-0 sm:mb-12;
+}
+
+.hero-section__article {
+  @apply sm:w-1/2;
+}
+
+.hero-section__article_left {
+  @apply flex sm:block flex-col justify-center items-center sm:pb-20 sm:mx-4 sm:mt-12;
+}
+
+.hero-section__article_right {
+  @apply max-w-sm sm:max-w-[calc(100vh-120px)];
+}
+
+.image {
+  @apply max-w-full;
+}
+
+.image_shadow {
+  @apply drop-shadow-[0_5px_10px_rgb(62,61,46,0.5)] dark:drop-shadow-[0_5px_10px_rgb(229,225,164,0.3)];
+}
+
+.hero-section__text {
+  @apply max-w-md;
+}
+
+.text {
+  @apply text-center sm:text-left;
+}
+
+.text_heading {
+  @apply font-bold text-4xl;
+}
+
+.text_paragraph {
+  @apply text-xl text-stone-600 dark:text-stone-400;
+}
+
+/* .text_shadow {
+  @apply [text-shadow:_0_5px_10px_rgb(62,61,46,0.3)] dark:[text-shadow:_0_5px_10px_rgb(229,225,164,0.3)];
+} */
+
+.hero-section__text_heading {
+  @apply lg:max-w-xl text-6xl lg:text-8xl;
+}
+
+.hero-section__text_paragraph {
+  @apply mt-4 mb-8 sm:mb-4 sm:ml-2;
+}
+
+.button {
+  @apply bg-darkgreen dark:bg-baseyellow text-baseyellow dark:text-darkgreen transition-all duration-300 hover:cursor-pointer;
+}
+
+.hero-section__button {
+  @apply max-w-md inline-block px-12 sm:px-6 md:px-12 py-4 rounded-3xl mt-2 sm:mt-4 mx-auto text-2xl sm:text-lg md:text-xl lg:text-3xl font-bold;
+}
+
+.button_hover_shadow {
+  @apply shadow-[0_0_10px_rgb(62,61,46,0.4)] dark:shadow-[0_0_15px_rgb(229,225,164,0.4)] hover:shadow-[0_0_20px_rgb(62,61,46,0.8)] dark:hover:shadow-[0_0_20px_rgb(229,225,164,0.8)];
+}
+
+.button_active_shadow {
+  @apply active:shadow-[0_0_20px_rgb(62,61,46,0.8)] dark:active:shadow-[0_0_20px_rgb(229,225,164,0.8)];
+}
+
+.button_hover_invert {
+  @apply hover:text-darkgreen dark:hover:text-baseyellow hover:bg-white/50 dark:hover:bg-stone-800;
+}
+
+.button_active_scale {
+  @apply active:transform active:scale-95;
+}
+
+.general-section {
+  @apply max-w-7xl h-[100vh] mx-auto;
+}
+
+.general-section_home {
+  @apply px-6 sm:mt-0 py-12;
+}
+
+.general-section__text_heading {
+  @apply text-5xl sm:text-6xl text-center font-bold mt-16 mb-8;
+}
+
+.card-list {
+  @apply flex flex-col sm:flex-row justify-center items-center mx-auto;
+}
+
+.card-list_about {
+  @apply gap-8 sm:gap-8;
+}
+
+.card {
+  @apply w-full rounded-3xl bg-darkyellow dark:bg-stone-800 shadow-xl p-6;
+}
+
+.card_about {
+  @apply sm:w-1/2;
+}
+
+.card__text_heading {
+  @apply mb-4 text-center; 
+}
+
+.horizontal-rule {
+  @apply border-t border-stone-600 dark:border-stone-400 m-6;
+}
+
+.card__text_paragraph {
+  @apply text-center;
 }
