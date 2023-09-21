@@ -1,68 +1,100 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+/* shadcn-ui */
+
+.shad-button {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50;
+}
+
+/* button removed: ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 */
+
+.shad-sheet__close {
+  @apply absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary;
+}
+
+/* sheet__close removed: ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2 */
+
+.shad-input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+/* shad-input removed: ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
+    --background: 56 62% 86%;
+    --foreground: 56 15% 21%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card: 56 62% 88%;
+    --card-foreground: 56 15% 21%;
  
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
+    --popover: 56 62% 88%;
+    --popover-foreground: 56 15% 21%;
+
+    --primary: 56 15% 21%;
+    --primary-foreground: 56 62% 86%;
  
-    --primary: 24 9.8% 10%;
-    --primary-foreground: 60 9.1% 97.8%;
- 
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
+    --secondary: 56 62% 86%;
+    --secondary-foreground: 56 15% 21%;
  
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
+    /* not changed */
  
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
+    --accent:  56 62% 95%;
+    --accent-foreground: 56 15% 30%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
+    /* not changed */
 
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
+    --border: 56 12% 90%;
+    --input: 56 12% 21%;
     --ring: 20 14.3% 4.1%;
+    /* ring not changed */
  
     --radius: 0.5rem;
   }
  
+/* baseyellow: hsl(56, 62%, 86%)
+darkyellow: hsl(56, 56%, 77%)
+darkgreen: hsl(56, 15%, 21%)
+darkbrown: hsl(5, 15%, 14%) 
+bg-stone-900: hsl(24 10% 10%)
+bg-stone-800: hsl(5 13% 16%) */
+
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
+    --background: 24 10% 15%;
+    --foreground: 56 62% 86%;
  
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
+    --card: 24 13% 15%;
+    --card-foreground: 56 62% 86%;
+
+    --popover: 24 13% 15%;
+    --popover-foreground: 56 62% 86%;
+
+    --primary: 56 62% 86%;
+    --primary-foreground: 5 13% 16%;
  
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
- 
-    --primary: 60 9.1% 97.8%;
-    --primary-foreground: 24 9.8% 10%;
- 
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
+    --secondary: 5 13% 16%;
+    --secondary-foreground: 56 62% 86%;
  
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
+    /* not changed */
  
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
+    --accent: 24 13% 20%;
+    --accent-foreground: 56 62% 95%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 60 9.1% 97.8%;
+    /* not changed */
  
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
+    --border: 24 10% 10%;
+    --input: 24 10% 10%;
     --ring: 24 5.7% 82.9%;
+    /* ring not changed */
   }
 }
  
@@ -154,7 +186,7 @@
 }
 
 .hero-section {
-  @apply max-w-7xl h-[100vh] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 pt-24 pb-12 mx-auto mt-0 sm:mb-12;
+  @apply max-w-7xl h-[calc(100vh)] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 pt-24 mx-auto mt-0;
 }
 
 .hero-section__article {
@@ -206,11 +238,12 @@
 }
 
 .button {
-  @apply bg-darkgreen dark:bg-baseyellow text-baseyellow dark:text-darkgreen transition-all duration-300 hover:cursor-pointer;
+  @apply transition-all duration-300 hover:cursor-pointer;
 }
+/* removed: bg-darkgreen dark:bg-baseyellow text-baseyellow dark:text-darkgreen */
 
 .hero-section__button {
-  @apply max-w-md inline-block px-12 sm:px-6 md:px-12 py-4 rounded-3xl mt-2 sm:mt-4 mx-auto text-2xl sm:text-lg md:text-xl lg:text-3xl font-bold;
+  @apply max-w-md h-auto inline-block px-12 sm:px-6 md:px-12 py-4 rounded-3xl mt-2 sm:mt-4 mx-auto text-2xl sm:text-lg md:text-xl lg:text-3xl font-bold;
 }
 
 .button_hover_shadow {
@@ -230,7 +263,7 @@
 }
 
 .general-section {
-  @apply max-w-7xl h-[100vh] mx-auto;
+  @apply max-w-7xl min-h-fit pt-24 pb-12 mx-auto mb-[10vh];
 }
 
 .general-section_home {
@@ -238,28 +271,21 @@
 }
 
 .general-section__text_heading {
-  @apply text-5xl sm:text-6xl text-center font-bold mt-16 mb-8;
+  @apply my-16 text-5xl sm:text-6xl text-center font-bold;
 }
 
 .card-list {
-  @apply flex flex-col sm:flex-row justify-center items-center mx-auto;
+  @apply flex flex-col justify-center items-center mx-auto;
 }
 
 .card-list_about {
-  @apply gap-8 sm:gap-8;
+  @apply w-full gap-8 sm:gap-24;
 }
 
 .card {
-  @apply w-full rounded-3xl bg-darkyellow dark:bg-stone-800 shadow-xl p-6;
+  @apply p-3 lg:p-6 shadow-xl max-w-4xl;
 }
-
-.card_about {
-  @apply sm:w-1/2;
-}
-
-.card__text_heading {
-  @apply mb-4 text-center; 
-}
+/* removed: rounded-3xl bg-darkyellow dark:bg-stone-800 shadow-xl  */
 
 .horizontal-rule {
   @apply border-t border-stone-600 dark:border-stone-400 m-6;
@@ -267,4 +293,51 @@
 
 .card__text_paragraph {
   @apply text-center;
+}
+
+.footer {
+  @apply max-w-full h-[30vh] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)];
+}
+
+.footer-section {
+  @apply sm:max-w-7xl flex mx-auto;
+}
+
+.footer-section__text {
+  @apply text-center;
+}
+
+.footer-section__text_heading {
+  @apply mb-8 text-4xl text-center font-bold;
+}
+
+.footer-section__text_paragraph {
+  @apply text-stone-600/80 dark:text-stone-400/80 text-lg text-center;
+}
+
+.footer-section__article {
+  @apply flex flex-col w-full;
+}
+
+.footer-section__social-links {
+  @apply flex justify-center mt-10;
+}
+
+.footer-section__social {
+  @apply p-6 rounded-full mx-4 text-2xl;
+}
+
+.footer-section__hover-content {
+  @apply flex justify-evenly items-center;
+}
+
+.mailing-form {
+  @apply min-w-[300px] sm:min-w-[400px];
+}
+
+.mailing-form__input {
+  @apply rounded-r-none px-2 py-4;
+}
+.mailing-form__button {
+  @apply rounded-l-none p-4;
 }

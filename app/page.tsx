@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
@@ -7,7 +8,7 @@ export default function Home() {
   const navItems = [
     { key: "home", path: "#home", text: "home" },
     { key: "about us", path: "#about-us", text: "about us" },
-    { key: "mailing list", path: "#mailing-list", text: "mailing list" },
+    { key: "socials", path: "#socials", text: "socials" },
   ];
 
   return (
@@ -19,6 +20,9 @@ export default function Home() {
         <Hero></Hero>
         <About></About>
       </main>
+      <footer className="footer">
+        <Footer></Footer>
+      </footer>
     </>
   );
 }

@@ -2,32 +2,32 @@ export interface NavbarProps {
   navItems: NavItem[];
 }
 
-interface NavItem {
+export interface NavItem {
   key: string;
   path: string;
   text: string;
 }
 
 import LinkMenu from "./LinkMenu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShieldHeart } from "@fortawesome/free-solid-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 import { ThemeToggle } from "./ThemeToggle";
+import SheetNavbar from "./SheetNavbar";
+import FullLogo from "./FullLogo";
 
 function Navbar({ navItems }: NavbarProps) {
   return (
     <>
       <nav className="navbar header__navbar">
-        <h1 className="logo navbar__logo">
-          ev <FontAwesomeIcon icon={faShieldHeart}></FontAwesomeIcon>
-        </h1>
+        <FullLogo></FullLogo>
         <ul className="link-menu navbar__link-menu link-menu_axis_x">
-          <LinkMenu navItems={navItems}></LinkMenu>
-          <ThemeToggle></ThemeToggle>
+          <LinkMenu navItems={navItems} purpose="default"></LinkMenu>
+          <div className="hidden sm:block">
+            <ThemeToggle></ThemeToggle>
+          </div>
         </ul>
-        <button className="navbar__button navbar__button_axis_y">
-          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-        </button>
+        <ul className="flex justify-center items-center sm:hidden">
+          <ThemeToggle></ThemeToggle>
+          <SheetNavbar navItems={navItems}></SheetNavbar>
+        </ul>
       </nav>
     </>
   );
