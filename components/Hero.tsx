@@ -11,6 +11,7 @@ function Hero() {
           src={marcusaurelius}
           alt="statue of marcus aurelius' bust"
           className="image image_shadow"
+          priority
         ></Image>
       </article>
     </section>

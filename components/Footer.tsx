@@ -22,10 +22,10 @@ function Footer() {
         </h2>
         <MailingListForm></MailingListForm>
         <div className="footer-section__social-links">
-          <MediaIcon title="@ev_blog" icon={faInstagram}></MediaIcon>
-          <MediaIcon title="@ev_blog" icon={faTiktok}></MediaIcon>
-          <MediaIcon title="ev's blog community" icon={faDiscord}></MediaIcon>
-          <MediaIcon title="ev's linkedin" icon={faLinkedinIn}></MediaIcon>
+          <MediaIcon title="@ev_blog" icon={faInstagram} link=""></MediaIcon>
+          <MediaIcon title="@ev_blog" icon={faTiktok} link=""></MediaIcon>
+          <MediaIcon title="ev's blog community" icon={faDiscord} link="https://discord.gg/P6QT2QjVDP"></MediaIcon>
+          <MediaIcon title="ev's linkedin" icon={faLinkedinIn} link=""></MediaIcon>
         </div>
       </article>
       <article className="footer-section__navigation"></article>

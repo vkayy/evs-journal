@@ -21,7 +21,7 @@ function About() {
                 and mutual appreciation for self-growth.
                 <br />
                 <br />
-                some of my hobbies include reading, particularly literature that
+                some of my hobbies include readin -- particularly literature that
                 allows me to explore the intricacies of the human mind and the
                 depths of philosophical thought.
                 <br />
@@ -42,10 +42,10 @@ function About() {
                 through this blog, i aim to inspire and offer comfort by sharing
                 my experiences, challenges, and triumphs, in hope that the
                 ontological perspective that shapes me is one that gives great
-                insight and offers comfort to you .
+                insight and offers comfort to you.
               </p>
             }
-            topics={["stoicism", "self-growth", "relationships", "psychology"]}
+            topics={["stoicism", "self-growth", "relationships", "psychology", "dance", "music"]}
           ></AboutCard>
           <AboutCard
             name="v"
@@ -69,7 +69,7 @@ function About() {
                 <br />
                 talent and competency gave me a sense of value, and careful
                 analysis of my environment gave me a sense of control. with the
-                lessons i've learnt in living life through this lens, i hope
+                lessons i've learnt in seeing life through my lens, i hope
                 that what i write can become as meaningful to you as it is to
                 us.
               </p>

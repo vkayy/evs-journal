@@ -9,11 +9,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 interface MediaIconProps {
   title: string;
   description?: string;
-  social?: string;
+  link: string;
   icon: IconProp;
 }
 
-function MediaIcon({ title, social, description, icon }: MediaIconProps) {
+function MediaIcon({ title, description, link, icon }: MediaIconProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -23,7 +23,7 @@ function MediaIcon({ title, social, description, icon }: MediaIconProps) {
           className="footer-section__social"
           asChild
         >
-          <Link href="">
+          <Link href={link} target="_blank">
             <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
           </Link>
         </Button>
