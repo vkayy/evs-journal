@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
 
-export default function Home() {
+export default function Page() {
   const navItems = [
     { key: "home", path: "#home", text: "home" },
     { key: "about us", path: "#about-us", text: "about us" },
