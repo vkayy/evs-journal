@@ -4,9 +4,9 @@ import {
   faTiktok,
   faInstagram,
   faDiscord,
-  faLinkedinIn,
+  faPatreon,
 } from "@fortawesome/free-brands-svg-icons";
-import { Button } from "./ui/button";
+
 import MailingListForm from "./MailingListForm";
 import MediaIcon from "./MediaIcon";
 
@@ -22,10 +22,30 @@ function Footer() {
         </h2>
         <MailingListForm></MailingListForm>
         <div className="footer-section__social-links">
-          <MediaIcon title="@ev_blog" icon={faInstagram} link=""></MediaIcon>
-          <MediaIcon title="@ev_blog" icon={faTiktok} link=""></MediaIcon>
-          <MediaIcon title="ev's blog community" icon={faDiscord} link="https://discord.gg/P6QT2QjVDP"></MediaIcon>
-          <MediaIcon title="ev's linkedin" icon={faLinkedinIn} link=""></MediaIcon>
+          <MediaIcon
+            title="@ev_blog"
+            icon={faInstagram}
+            link=""
+            content={<p>discover our latest updates on instagram!</p>}
+          ></MediaIcon>
+          <MediaIcon
+            title="@ev_blog"
+            icon={faTiktok}
+            link=""
+            content={<p>join us on our journey on tiktok!</p>}
+          ></MediaIcon>
+          <MediaIcon
+            title="ev's blog community"
+            icon={faDiscord}
+            link="https://discord.gg/P6QT2QjVDP"
+            content={<p>become a part of our vibrant discord community!</p>}
+          ></MediaIcon>
+          <MediaIcon
+            title="ev's exclusives"
+            icon={faPatreon}
+            link=""
+            content={<p>get exclusive access to content on patreon!</p>}
+          ></MediaIcon>
         </div>
       </article>
       <article className="footer-section__navigation"></article>
