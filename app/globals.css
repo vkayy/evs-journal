@@ -327,10 +327,6 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply p-6 rounded-full mx-4 text-2xl;
 }
 
-.footer-section__social_hover_spin {
-  @apply animate-pulse;
-}
-
 .footer-section__hover-content {
   @apply w-[300px] mb-2;
 }
