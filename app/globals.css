@@ -275,15 +275,15 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .card-list {
-  @apply flex flex-col justify-center items-center mx-auto;
+  @apply flex flex-col justify-center items-center p-4 mx-auto;
 }
 
 .card-list_about {
-  @apply w-full gap-8 sm:gap-24;
+  @apply w-full gap-12 sm:gap-24;
 }
 
 .card {
-  @apply p-3 lg:p-6 shadow-xl max-w-4xl;
+  @apply p-3 lg:p-6 shadow-xl max-w-[80rem];
 }
 /* removed: rounded-3xl bg-darkyellow dark:bg-stone-800 shadow-xl  */
 
@@ -327,8 +327,25 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply p-6 rounded-full mx-4 text-2xl;
 }
 
+.footer-section__social_hover_spin {
+  @apply animate-pulse;
+}
+
 .footer-section__hover-content {
-  @apply flex justify-evenly items-center;
+  @apply w-[300px] mb-2;
+}
+
+.footer-section__hover-container {
+  @apply flex justify-between space-x-4;
+}
+
+
+.footer-section__hover-main {
+  @apply text-sm space-y-2;
+}
+
+.footer-section__hover-heading {
+  @apply font-semibold;
 }
 
 .mailing-form {
@@ -336,8 +353,8 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .mailing-form__input {
-  @apply px-4 py-6 border-r-0 rounded-r-none;
+  @apply p-4 border-r-0 rounded-r-none;
 }
 .mailing-form__button {
-  @apply px-4 py-6 border border-l-0 border-input rounded-l-none;
+  @apply p-4 border border-l-0 border-input rounded-l-none;
 }
