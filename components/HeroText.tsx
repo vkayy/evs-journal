@@ -18,7 +18,10 @@ function HeroText() {
         explore our blog! &nbsp;
         <FontAwesomeIcon icon={faBookBookmark}></FontAwesomeIcon>
       </Link> */}
-      <Button className="button hero-section__button button_hover_shadow button_active_scale button_active_shadow" asChild>
+      <Button
+        className="button hero-section__button button_hover_shadow button_active_scale button_active_shadow"
+        asChild
+      >
         <Link href="/blog">
           explore our blog! &nbsp;
           <FontAwesomeIcon icon={faBookBookmark}></FontAwesomeIcon>

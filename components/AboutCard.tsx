@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { Badge } from "./ui/badge";
 import {
   Card,
@@ -12,7 +11,7 @@ import {
 interface AboutCardProps {
   name: string;
   description: string;
-  about: ReactNode;
+  about: React.ReactNode;
   topics: string[];
 }
 

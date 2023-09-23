@@ -1,12 +1,10 @@
-import { ReactNode } from "react";
-
-interface Props {
+interface MainProps {
   id: string;
   heading: string;
-  content?: ReactNode;
+  content?: React.ReactNode;
 }
 
-function MainSection({ id, heading, content }: Props) {
+function MainSection({ id, heading, content }: MainProps) {
   return (
     <section className="general-section general-section_home" id={id}>
       <h2 className="general-section__text_heading text text_heading text_shadow">
