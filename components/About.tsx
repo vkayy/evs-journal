@@ -7,7 +7,7 @@ function About() {
   return (
     <MainSection
       id="about-us"
-      heading="our first message to you"
+      heading="our messages to you"
       content={
         <ul className="card-list card-list_about">
           <AboutCard
@@ -21,9 +21,9 @@ function About() {
                 and mutual appreciation for self-growth.
                 <br />
                 <br />
-                some of my hobbies include readin -- particularly literature that
-                allows me to explore the intricacies of the human mind and the
-                depths of philosophical thought.
+                some of my hobbies include reading -- particularly literature
+                that allows me to explore the intricacies of the human mind and
+                the depths of philosophical thought.
                 <br />
                 <br />
                 i have always loved dancing as a creative outlet, pursuing such
@@ -45,7 +45,14 @@ function About() {
                 insight and offers comfort to you.
               </p>
             }
-            topics={["stoicism", "self-growth", "relationships", "psychology", "dance", "music"]}
+            topics={[
+              "stoicism",
+              "self-growth",
+              "relationships",
+              "psychology",
+              "dance",
+              "music",
+            ]}
           ></AboutCard>
           <AboutCard
             name="v"
@@ -62,16 +69,14 @@ function About() {
                 <br />
                 as a person, i’m driven by an incessant desire to know and
                 understand, fuelled by challenge and interest. i found passion
-                in deconstructing the logic that breathed life into my seemingly
-                chaotic environment, which grew to define my character as a
-                whole.
+                in deconstructing the logic that breathed life into my chaotic
+                environment, growing to define my character as a whole.
                 <br />
                 <br />
                 talent and competency gave me a sense of value, and careful
                 analysis of my environment gave me a sense of control. with the
-                lessons i've learnt in seeing life through my lens, i hope
-                that what i write can become as meaningful to you as it is to
-                us.
+                lessons i've learnt in seeing life through my lens, i hope that
+                what i write can become as meaningful to you as it is to us.
               </p>
             }
             topics={[
