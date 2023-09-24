@@ -20,11 +20,11 @@ function Navbar({ navItems }: NavbarProps) {
         <FullLogo></FullLogo>
         <ul className="link-menu navbar__link-menu link-menu_axis_x">
           <LinkMenu navItems={navItems} purpose="default"></LinkMenu>
-          <div className="hidden lg:block">
+          <div className="hidden md:block">
             <ThemeToggle></ThemeToggle>
           </div>
         </ul>
-        <ul className="flex justify-center items-center lg:hidden">
+        <ul className="flex justify-center items-center md:hidden">
           <ThemeToggle></ThemeToggle>
           <SheetNavbar navItems={navItems}></SheetNavbar>
         </ul>

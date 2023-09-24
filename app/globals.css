@@ -158,7 +158,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .link-menu_axis_x {
-  @apply hidden lg:flex justify-evenly items-center gap-10;
+  @apply hidden md:flex justify-evenly items-center gap-10;
 }
 
 .navbar__button {
