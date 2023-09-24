@@ -23,7 +23,7 @@ function AboutCard({ name, description, about, topics }: AboutCardProps) {
           <CardTitle>{name}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
-        <CardContent>{about}</CardContent>
+        <CardContent className="text-sm sm:text-base">{about}</CardContent>
         <CardFooter className="flex flex-wrap">
           <ul>
             {topics.map((topic) => (
