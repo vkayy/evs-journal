@@ -10,7 +10,7 @@ function MainSection({ id, heading, content }: MainProps) {
       <h2 className="general-section__text_heading text text_heading text_shadow">
         {heading}
       </h2>
-      {content}
+      <div className="general-section__content">{content}</div>
     </section>
   );
 }
