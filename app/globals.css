@@ -190,7 +190,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section {
-  @apply max-w-7xl h-[calc(100vh)] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 pt-24 mx-auto mt-0;
+  @apply max-w-7xl h-[calc(100vh)] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 pt-12 sm:pt-24 mx-auto mt-0;
 }
 
 .hero-section__article {
@@ -267,15 +267,11 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .general-section {
-  @apply max-w-7xl min-h-fit pt-24 pb-12 mx-auto mb-[10vh];
-}
-
-.general-section_home {
-  @apply px-6 sm:mt-0 py-12;
+  @apply max-w-7xl min-h-fit mx-auto mb-[10vh] px-2 sm:px-6 mt-0 py-4 md:py-8;
 }
 
 .general-section__text_heading {
-  @apply my-16 text-5xl sm:text-6xl text-center font-bold;
+  @apply px-4 my-16 text-5xl sm:text-6xl text-center font-bold;
 }
 
 .card-list {
@@ -283,7 +279,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .card-list_about {
-  @apply w-full gap-12 sm:gap-24;
+  @apply w-full gap-12 md:gap-16;
 }
 
 .card {
@@ -300,11 +296,11 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer {
-  @apply w-full h-[18rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)] mt-auto;
+  @apply w-full h-[14rem] md:h-[18rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)] mt-auto;
 }
 
 .footer-section {
-  @apply sm:max-w-7xl flex mx-auto;
+  @apply md:max-w-7xl flex mx-auto;
 }
 
 .footer-section__text {
@@ -312,11 +308,11 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer-section__text_heading {
-  @apply mb-8 text-4xl text-center font-bold;
+  @apply mb-4 md:mb-8 text-2xl md:text-4xl text-center font-bold;
 }
 
 .footer-section__text_paragraph {
-  @apply text-stone-600/80 dark:text-stone-400/80 text-lg text-center;
+  @apply text-stone-600/80 dark:text-stone-400/80 text-base md:text-lg text-center;
 }
 
 .footer-section__article {
@@ -324,11 +320,11 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer-section__social-links {
-  @apply flex justify-center mt-10;
+  @apply flex justify-center mt-4 md:mt-10;
 }
 
 .footer-section__social {
-  @apply p-6 rounded-full mx-4 text-2xl;
+  @apply p-2 md:p-6 rounded-full mx-2 md:mx-4 text-xl md:text-2xl;
 }
 
 .footer-section__hover-content {
@@ -348,7 +344,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .mailing-form {
-  @apply min-w-[20rem] sm:min-w-[25rem];
+  @apply min-w-[15rem] md:min-w-[25rem];
 }
 
 .mailing-form__input {
