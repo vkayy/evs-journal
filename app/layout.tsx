@@ -24,7 +24,6 @@ export default function RootLayout({
     { key: "home", path: "/", text: "home" },
     { key: "journal", path: "/journal", text: "journal" },
     { key: "about us", path: "/about", text: "about us" },
-    { key: "socials", path: "#socials", text: "socials" },
   ];
   return (
     <html lang="en" className="scroll-smooth">
