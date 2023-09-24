@@ -190,7 +190,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section {
-  @apply max-w-7xl min-h-[100svh] lg:min-h-screen flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto mt-0 relative pb-16 pt-16 sm:pt-24;
+  @apply max-w-7xl h-[100svh] lg:min-h-screen flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto mt-0 relative pb-16 pt-32 sm:pt-24;
 }
 
 .hero-section__article {
@@ -202,7 +202,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section__article_right {
-  @apply max-w-sm sm:max-w-[calc(100svh-7.5rem)];
+  @apply max-w-[16rem] sm:max-w-[calc(100svh-7.5rem)];
 }
 
 .image {
@@ -242,7 +242,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .button {
-  @apply transition-all duration-300 hover:cursor-pointer;
+  @apply transition-all duration-300 hover:cursor-pointer text-center;
 }
 /* removed: bg-darkgreen dark:bg-baseyellow text-baseyellow dark:text-darkgreen */
 
@@ -271,7 +271,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .general-section__text_heading {
-  @apply px-4 my-16 text-5xl sm:text-6xl text-center font-bold;
+  @apply px-4 my-8 sm:my-16 text-3xl sm:text-6xl text-center font-bold;
 }
 
 .card-list {
@@ -344,12 +344,12 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .mailing-form {
-  @apply min-w-[15rem] md:min-w-[25rem];
+  @apply max-w-[12rem] md:min-w-[25rem];
 }
 
 .mailing-form__input {
   @apply p-4 border-r-0 rounded-r-none;
 }
 .mailing-form__button {
-  @apply p-4 border border-l-0 border-input rounded-l-none;
+  @apply py-4 px-2 sm:px-4 border border-l-0 border-input rounded-l-none;
 }
