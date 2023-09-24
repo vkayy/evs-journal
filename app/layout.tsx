@@ -11,7 +11,7 @@ config.autoAddCss = false;
 const readexPro = Readex_Pro({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ev's blog",
+  title: "ev's journal",
   description: "our experience with self-growth, stoicism, and relationships.",
 };
 
