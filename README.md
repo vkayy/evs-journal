@@ -4,7 +4,5 @@ freelance blog website for ev, currently in development.
 - next.js
 - tailwind css
 - axios
-
 - node.js
-- express.js
-- mongodb
+- firebase
