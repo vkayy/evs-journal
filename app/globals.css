@@ -247,7 +247,7 @@ bg-stone-800: hsl(5 13% 16%) */
 /* removed: bg-darkgreen dark:bg-baseyellow text-baseyellow dark:text-darkgreen */
 
 .hero-section__button {
-  @apply max-w-md h-auto inline-block px-4 sm:px-6 md:px-12 py-4 rounded-3xl mt-2 sm:mt-4 mx-auto text-xl lg:text-3xl font-bold;
+  @apply max-w-md h-auto inline-block px-4 md:px-12 py-4 rounded-3xl mt-2 sm:mt-4 mx-auto text-2xl sm:text-xl lg:text-3xl font-bold;
 }
 
 .button_hover_shadow {
