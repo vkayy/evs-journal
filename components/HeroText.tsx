@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 function HeroText() {
   return (
-    <article className="hero-section__article hero-section__article_left">
+    <article className="hero-section__article hero-section__article_left hero-section__entry-animation hero-section__entry-animation_left">
       <h2 className="text hero-section__text hero-section__text_heading text_heading text_shadow">
         two minds,&nbsp;
         <br className="hidden sm:block" />

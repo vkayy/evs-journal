@@ -201,6 +201,18 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply flex sm:block flex-col justify-center items-center sm:pb-20 sm:mx-4 sm:mt-12;
 }
 
+.hero-section__entry-animation {
+  @apply animate-in fade-in duration-1000;
+}
+
+.hero-section__entry-animation_left {
+  @apply slide-in-from-bottom-64 sm:slide-in-from-bottom-0 sm:slide-in-from-left-64;
+}
+
+.hero-section__entry-animation_right {
+  @apply slide-in-from-top-64 sm:slide-in-from-top-0 sm:slide-in-from-right-64;
+}
+
 .hero-section__article_right {
   @apply max-w-[16rem] sm:max-w-[calc(100svh-7.5rem)];
 }
@@ -272,6 +284,18 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .general-section__text_heading {
   @apply px-4 my-8 sm:my-16 text-3xl sm:text-6xl text-center font-bold;
+}
+
+.general-section__entry-animation {
+  @apply animate-in fade-in duration-1000;
+}
+
+.general-section__entry-animation_top {
+  @apply slide-in-from-top-64;
+}
+
+.general-section__entry-animation_bottom {
+  @apply slide-in-from-bottom-64;
 }
 
 .card-list {

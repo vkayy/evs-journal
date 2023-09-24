@@ -7,10 +7,10 @@ interface MainProps {
 function MainSection({ id, heading, content }: MainProps) {
   return (
     <section className="general-section" id={id}>
-      <h2 className="general-section__text_heading text text_heading text_shadow">
+      <h2 className="general-section__text_heading text text_heading text_shadow general-section__entry-animation general-section__entry-animation_top">
         {heading}
       </h2>
-      <div className="general-section__content">{content}</div>
+      <div className="general-section__content general-section__entry-animation general-section__entry-animation_bottom">{content}</div>
     </section>
   );
 }
