@@ -7,8 +7,8 @@ function HeroText() {
   return (
     <article className="hero-section__article hero-section__article_left">
       <h2 className="text hero-section__text hero-section__text_heading text_heading text_shadow">
-        two minds,
-        <br />
+        two minds,&nbsp;
+        <br className="hidden sm:block" />
         one heart.
       </h2>
       <p className="text hero-section__text hero-section__text_paragraph text_paragraph text_shadow">
