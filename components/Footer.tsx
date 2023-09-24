@@ -23,22 +23,22 @@ function Footer() {
         <MailingListForm></MailingListForm>
         <div className="footer-section__social-links">
           <MediaIcon
-            title="@ev_blog"
+            title="@evsjournal"
             icon={faInstagram}
             link=""
             content={<p>discover our latest updates on instagram!</p>}
           ></MediaIcon>
           <MediaIcon
-            title="@ev_blog"
+            title="@evsjournal"
             icon={faTiktok}
             link=""
-            content={<p>join us on our journey on tiktok!</p>}
+            content={<p>catch up with our journey on tiktok!</p>}
           ></MediaIcon>
           <MediaIcon
-            title="ev's blog community"
+            title="journal with ev"
             icon={faDiscord}
-            link="https://discord.gg/P6QT2QjVDP"
-            content={<p>become a part of our vibrant discord community!</p>}
+            link=""
+            content={<p>be a part of our vibrant discord community!</p>}
           ></MediaIcon>
           <MediaIcon
             title="ev's exclusives"
@@ -48,7 +48,6 @@ function Footer() {
           ></MediaIcon>
         </div>
       </article>
-      <article className="footer-section__navigation"></article>
     </section>
   );
 }
