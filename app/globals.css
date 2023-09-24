@@ -335,7 +335,6 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply flex justify-between space-x-4;
 }
 
-
 .footer-section__hover-main {
   @apply text-sm space-y-2;
 }
