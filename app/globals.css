@@ -108,7 +108,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .page {
-  @apply box-border flex flex-col min-h-[100vh] p-0 m-0 text-darkgreen dark:text-baseyellow bg-baseyellow dark:bg-stone-900
+  @apply box-border flex flex-col min-h-[100svh] p-0 m-0 text-darkgreen dark:text-baseyellow bg-baseyellow dark:bg-stone-900
 }
 
 /* potential .page-landing, .page-blog for future */
@@ -122,7 +122,7 @@ bg-stone-800: hsl(5 13% 16%) */
 } */
 
 .header {
-  @apply fixed top-0 left-0 w-[100dvw];
+  @apply fixed top-0 left-0 right-0 w-[100vw];
 }
 
 .page__header {
@@ -182,7 +182,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .main {
-  @apply max-w-full mx-auto min-h-[100vh];
+  @apply max-w-full mx-auto min-h-[100svh];
 }
 
 .main_about, .main_journal {
@@ -190,7 +190,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section {
-  @apply max-w-7xl min-h-[100svh] flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto mt-0 relative pb-16 pt-16 sm:pt-24;
+  @apply max-w-7xl min-h-[100svh] lg:min-h-screen flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto mt-0 relative pb-16 pt-16 sm:pt-24;
 }
 
 .hero-section__article {
@@ -353,4 +353,3 @@ bg-stone-800: hsl(5 13% 16%) */
 .mailing-form__button {
   @apply p-4 border border-l-0 border-input rounded-l-none;
 }
-
