@@ -14,16 +14,12 @@ function HeroText() {
       <p className="text hero-section__text hero-section__text_paragraph text_paragraph text_shadow">
         our insights on the world, cultivated by the experiences that shaped us.
       </p>
-      {/* <Link href="/blog" className="button hero-section__button button_hover_shadow button_hover_invert button_active_scale button_active_shadow">
-        explore our blog! &nbsp;
-        <FontAwesomeIcon icon={faBookBookmark}></FontAwesomeIcon>
-      </Link> */}
       <Button
         className="button hero-section__button button_hover_shadow button_active_scale button_active_shadow"
         asChild
       >
-        <Link href="/blog">
-          explore our blog! &nbsp;
+        <Link href="/journal">
+          explore our journal! &nbsp;
           <FontAwesomeIcon icon={faBookBookmark}></FontAwesomeIcon>
         </Link>
       </Button>
