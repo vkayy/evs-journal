@@ -29,7 +29,7 @@ function About() {
                 i have always loved dancing as a creative outlet, pursuing such
                 from a young age. i try honing my strengths to better connect
                 with and comprehend people. these skills, however, are not just
-                tools for me; they're a means of fostering deeper understanding
+                tools for me; they&apos;re a means of fostering deeper understanding
                 and empathy.
                 <br />
                 <br />
@@ -59,7 +59,7 @@ function About() {
             description="computing undergraduate - aspiring software developer"
             about={
               <p>
-                what&apos;s up? i&apos;m v, and i'm really grateful to have your interest,
+                what&apos;s up? i&apos;m v, and i&apos;m really grateful to have your interest,
                 even if it is momentary to you.
                 <br />
                 <br />
@@ -75,7 +75,7 @@ function About() {
                 <br />
                 talent and competency gave me a sense of value, and careful
                 analysis of my environment gave me a sense of control. with the
-                lessons i've learnt in seeing life through my lens, i hope that
+                lessons i&apos;ve learnt in seeing life through my lens, i hope that
                 what i write can become as meaningful to you as it is to us.
               </p>
             }
