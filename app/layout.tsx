@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const navItems = [
-    { key: "home", path: "#home", text: "home" },
-    { key: "about us", path: "#about-us", text: "about us" },
+    { key: "home", path: "/", text: "home" },
+    { key: "about us", path: "/about", text: "about us" },
     { key: "socials", path: "#socials", text: "socials" },
   ];
   return (

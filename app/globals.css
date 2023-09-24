@@ -108,7 +108,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .page {
-  @apply min-h-screen box-border p-0 m-0 text-darkgreen dark:text-baseyellow bg-baseyellow dark:bg-stone-900
+  @apply box-border flex flex-col min-h-screen p-0 m-0 text-darkgreen dark:text-baseyellow bg-baseyellow dark:bg-stone-900
 }
 
 /* potential .page-landing, .page-blog for future */
@@ -183,6 +183,10 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .main {
   @apply max-w-full mx-auto;
+}
+
+.main_about {
+  @apply pt-12;
 }
 
 .hero-section {
@@ -296,7 +300,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer {
-  @apply max-w-full max-h-[20rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)];
+  @apply w-full h-[18rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)] mt-auto;
 }
 
 .footer-section {
