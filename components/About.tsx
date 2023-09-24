@@ -15,7 +15,7 @@ function About() {
             description="psychology undergraduate - aspiring psychologist"
             about={
               <p>
-                hi, im e! im so excited that you’ve found our page and are
+                hi, im e! im so excited that you&apos;ve found our page and are
                 interested in learning more about us :&#93; this space is a passion
                 project i share with my partner, born out of our shared values
                 and mutual appreciation for self-growth.
@@ -59,7 +59,7 @@ function About() {
             description="computing undergraduate - aspiring software developer"
             about={
               <p>
-                what’s up? i’m v, and i'm really grateful to have your interest,
+                what&apos;s up? i&apos;m v, and i'm really grateful to have your interest,
                 even if it is momentary to you.
                 <br />
                 <br />
@@ -67,7 +67,7 @@ function About() {
                 profoundly with stoicism, which arguably changed my life.
                 <br />
                 <br />
-                as a person, i’m driven by an incessant desire to know and
+                as a person, i&apos;m driven by an incessant desire to know and
                 understand, fuelled by challenge and interest. i found passion
                 in deconstructing the logic that breathed life into my chaotic
                 environment, growing to define my character as a whole.
