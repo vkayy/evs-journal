@@ -185,7 +185,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply max-w-full mx-auto min-h-[100dvh];
 }
 
-.main_about {
+.main_about, .main_journal {
   @apply pt-12;
 }
 
