@@ -16,7 +16,7 @@ function About() {
             about={
               <p>
                 hi, im e! im so excited that you’ve found our page and are
-                interested in learning more about us :] this space is a passion
+                interested in learning more about us :&#93; this space is a passion
                 project i share with my partner, born out of our shared values
                 and mutual appreciation for self-growth.
                 <br />
