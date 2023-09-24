@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 config.autoAddCss = false;
 
 const readexPro = Readex_Pro({ subsets: ["latin"] });
@@ -32,6 +33,9 @@ export default function RootLayout({
             <Navbar navItems={navItems}></Navbar>
           </header>
           {children}
+          <footer className="footer">
+            <Footer></Footer>
+          </footer>
         </ThemeProvider>
       </body>
     </html>

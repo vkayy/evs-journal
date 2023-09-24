@@ -12,9 +12,6 @@ export default function Page() {
         <Hero></Hero>
         <About></About>
       </main>
-      <footer className="footer">
-        <Footer></Footer>
-      </footer>
     </>
   );
 }
