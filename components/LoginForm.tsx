@@ -115,7 +115,7 @@ export default function LoginForm() {
       </Card>
       <div className="link-container">
         <Link href="/signup" className="link">
-          haven't signed up yet?
+          haven&apos;t signed up yet?
         </Link>
       </div>
     </>

@@ -45,12 +45,12 @@ export default function Page() {
                   ) : (
                     <>
                       <DialogHeader>
-                        <DialogTitle>you aren't logged in!</DialogTitle>
-                        <DialogDescription>in order to give you credit, it's important that you log in</DialogDescription>
+                        <DialogTitle>you aren&apos;t logged in!</DialogTitle>
+                        <DialogDescription>in order to give you credit, it&apos;s important that you log in</DialogDescription>
                       </DialogHeader>
                       <Button onClick={() => {
                         router.push("/login")
-                      }}>don't miss out!</Button>
+                      }}>don&apos;t miss out!</Button>
                     </>
                   )}
                 </DialogContent>
