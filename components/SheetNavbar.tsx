@@ -2,8 +2,6 @@
 
 import { NavbarProps } from "./Navbar";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import {
   Sheet,
   SheetContent,
@@ -14,13 +12,14 @@ import {
 } from "./ui/sheet";
 import { Button } from "./ui/button";
 import LinkMenu from "./LinkMenu";
+import { Menu } from "lucide-react";
 
 function SheetNavbar({ navItems }: NavbarProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost">
-          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+        <Button variant="ghost" size="icon">
+          <Menu></Menu>
         </Button>
       </SheetTrigger>
       <SheetContent side="right">

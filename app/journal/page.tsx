@@ -1,22 +1,65 @@
+"use client";
+
 import MainSection from "@/components/MainSection";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import TopicRequestForm from "@/components/TopicRequestForm";
+import { Toaster } from "@/components/ui/toaster";
+import { useAuthContext } from "@/components/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const { user } = useAuthContext();
+  const router = useRouter();
+
   return (
     <>
       <main className="main main_journal">
-        <MainSection
-          id="journal"
-          heading="hey there!"
-          content={
-            <>
-              <h1 className="text-center text_heading mb-8">
-                THIS PAGE IS A WORK IN PROGRESS
-              </h1>
-              <p className="text-center text_paragraph">come back soon!</p>
-            </>
-          }
-        ></MainSection>
+        <MainSection id="journal" heading="ev's journal entries">
+          <>
+            <div className="entry-container">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="button entry-container__button button_hover_shadow button_active_scale">
+                    request a topic for us to cover!
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  {user ? (
+                    <>
+                      <DialogHeader>
+                        <DialogTitle>make a request</DialogTitle>
+                        <DialogDescription>
+                          be as creative as you want!
+                        </DialogDescription>
+                      </DialogHeader>
+                      <TopicRequestForm></TopicRequestForm>
+                    </>
+                  ) : (
+                    <>
+                      <DialogHeader>
+                        <DialogTitle>you aren't logged in!</DialogTitle>
+                        <DialogDescription>in order to give you credit, it's important that you log in</DialogDescription>
+                      </DialogHeader>
+                      <Button onClick={() => {
+                        router.push("/login")
+                      }}>don't miss out!</Button>
+                    </>
+                  )}
+                </DialogContent>
+              </Dialog>
+            </div>
+          </>
+        </MainSection>
       </main>
+      <Toaster></Toaster>
     </>
   );
 }

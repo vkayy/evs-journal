@@ -1,9 +1,8 @@
-import About from "@/components/About";
+"use client";
+
 import Hero from "@/components/Hero";
 
-
 export default function Page() {
-
   return (
     <>
       <main className="main">

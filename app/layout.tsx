@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AuthProvider from "@/components/AuthContext";
 config.autoAddCss = false;
 
 const readexPro = Readex_Pro({ subsets: ["latin"] });
@@ -25,17 +26,20 @@ export default function RootLayout({
     { key: "journal", path: "/journal", text: "journal" },
     { key: "about us", path: "/about", text: "about us" },
   ];
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${readexPro.className} page page_landing`}>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <header className="header page__header header_glass">
-            <Navbar navItems={navItems}></Navbar>
-          </header>
-          {children}
-          <footer className="footer">
-            <Footer></Footer>
-          </footer>
+          <AuthProvider>
+            <header className="header page__header header_glass">
+              <Navbar navItems={navItems}></Navbar>
+            </header>
+            {children}
+            <footer className="footer">
+              <Footer></Footer>
+            </footer>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
