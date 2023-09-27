@@ -24,10 +24,10 @@ export default function Page() {
       <main className="main main_journal">
         <MainSection id="journal" heading="our journal entries">
           <>
-            <div className="entry-container">
+            <div className="request-container">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="button entry-container__button button_hover_shadow button_active_scale">
+                  <Button className="button request-container__button button_hover_shadow button_active_scale">
                     request a topic for us to cover!
                   </Button>
                 </DialogTrigger>

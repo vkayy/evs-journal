@@ -415,11 +415,11 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply sm:hidden;
 }
 
-.entry-container {
+.request-container {
   @apply flex justify-center items-center;
 }
 
-.entry-container__button {
+.request-container__button {
   @apply text-base;
 } 
 
