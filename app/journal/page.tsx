@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <>
       <main className="main main_journal">
-        <MainSection id="journal" heading="ev's journal entries">
+        <MainSection id="journal" heading="our journal entries">
           <>
             <div className="entry-container">
               <Dialog>
