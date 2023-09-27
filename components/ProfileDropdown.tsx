@@ -13,7 +13,7 @@ import { LogIn, LogOut, PersonStanding, UserCircle2 } from "lucide-react";
 import { useAuthContext } from "./AuthProvider";
 import { useRouter } from "next/navigation";
 import { getAuth, signOut } from "firebase/auth";
-import { app } from "@/firebase.config";
+import { app } from "@/firebase/firebase.config";
 import { toast } from "./ui/use-toast";
 
 export default function ProfileDropdown() {
