@@ -35,7 +35,9 @@ export default function ProfileDropdown() {
           <DropdownMenuItem
             onClick={() => {
               signOut(auth)
-                .then(() => {})
+                .then(() => {
+                  router.push("/login")
+                })
                 .catch((error) => {
                   toast({
                     variant: "destructive",
