@@ -32,13 +32,9 @@ export default function RootLayout({
       <body className={`${readexPro.className} page page_landing`}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <AuthProvider>
-            <header className="header page__header header_glass">
-              <Navbar navItems={navItems}></Navbar>
-            </header>
+            <Navbar navItems={navItems}></Navbar>
             {children}
-            <footer className="footer">
-              <Footer></Footer>
-            </footer>
+            <Footer></Footer>
           </AuthProvider>
         </ThemeProvider>
       </body>
