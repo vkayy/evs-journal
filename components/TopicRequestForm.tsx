@@ -16,11 +16,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useAuthContext } from "./AuthProvider";
+import { addDataAutoID, addDataSetID } from "@/firebase/addData";
+import { toast } from "./ui/use-toast";
+import { useRouter } from "next/navigation";
 
 const requestSchema = z.object({
-  requester: z.string().min(1, {
-    message: "crediting your idea is important to us!",
-  }),
+  requesterEmail: z.string().email(),
+  requesterDisplayName: z.string().min(1),
   topic: z.string().min(3, {
     message:
       "could you be a bit more specific? we might not know what you mean!",
@@ -28,30 +30,66 @@ const requestSchema = z.object({
 });
 
 function TopicRequestForm() {
+  const router = useRouter();
+
   const { user } = useAuthContext();
-  const requester = user ? user.displayName! : "";
+  const requesterEmail = user!.email!;
+  const requesterDisplayName = user!.displayName!;
 
   const requestForm = useForm<z.infer<typeof requestSchema>>({
     resolver: zodResolver(requestSchema),
     defaultValues: {
-      requester,
+      requesterEmail,
+      requesterDisplayName,
       topic: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof requestSchema>) {}
+  async function addRequest(values: z.infer<typeof requestSchema>) {
+    const { error } = await addDataAutoID("requests", values);
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "oh no, try again!",
+        description: "there was an issue sending your request :(",
+      });
+      console.error("Error adding request: ", error);
+    }
+    toast({
+      title: `thanks, ${values.requesterDisplayName}!`,
+      description: "we'll check out your request asap!",
+    });
+    router.push("/journal");
+  }
+
+  function onSubmit(values: z.infer<typeof requestSchema>) {
+    addRequest(values);
+  }
 
   return (
     <Form {...requestForm}>
       <form onSubmit={requestForm.handleSubmit(onSubmit)} className="form">
         <FormField
           control={requestForm.control}
-          name="requester"
+          name="requesterEmail"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>your name</FormLabel>
+              <FormLabel>your email</FormLabel>
               <FormControl>
-                <Input {...field}></Input>
+                <Input {...field} disabled></Input>
+              </FormControl>
+              <FormMessage></FormMessage>
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={requestForm.control}
+          name="requesterDisplayName"
+          render={({ field }) => (
+            <FormItem className="">
+              <FormLabel>your display name</FormLabel>
+              <FormControl>
+                <Input {...field} disabled></Input>
               </FormControl>
               <FormMessage></FormMessage>
             </FormItem>
@@ -63,7 +101,7 @@ function TopicRequestForm() {
           name="topic"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>your request</FormLabel>
+              <FormLabel>your topic</FormLabel>
               <FormControl>
                 <Textarea {...field}></Textarea>
               </FormControl>
