@@ -415,11 +415,11 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply sm:hidden;
 }
 
-.request-container {
+.request-dialog-container {
   @apply flex justify-center items-center;
 }
 
-.request-container__button {
+.request-dialog-container__button {
   @apply text-base;
 } 
 
