@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import TopicRequestForm from "@/components/TopicRequestForm";
 import { Toaster } from "@/components/ui/toaster";
-import { useAuthContext } from "@/components/AuthContext";
+import { useAuthContext } from "@/components/AuthProvider";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
@@ -46,11 +46,18 @@ export default function Page() {
                     <>
                       <DialogHeader>
                         <DialogTitle>you aren&apos;t logged in!</DialogTitle>
-                        <DialogDescription>in order to give you credit, it&apos;s important that you log in</DialogDescription>
+                        <DialogDescription>
+                          in order to give you credit, it&apos;s important that
+                          you log in
+                        </DialogDescription>
                       </DialogHeader>
-                      <Button onClick={() => {
-                        router.push("/login")
-                      }}>don&apos;t miss out!</Button>
+                      <Button
+                        onClick={() => {
+                          router.push("/login");
+                        }}
+                      >
+                        don&apos;t miss out!
+                      </Button>
                     </>
                   )}
                 </DialogContent>

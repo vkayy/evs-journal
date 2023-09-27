@@ -6,7 +6,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AuthProvider from "@/components/AuthContext";
+import AuthProvider from "@/components/AuthProvider";
 config.autoAddCss = false;
 
 const readexPro = Readex_Pro({ subsets: ["latin"] });

@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
-import { useAuthContext } from "./AuthContext";
+import { useAuthContext } from "./AuthProvider";
 
 const requestSchema = z.object({
   requester: z.string().min(1, {
@@ -29,7 +29,7 @@ const requestSchema = z.object({
 
 function TopicRequestForm() {
   const { user } = useAuthContext();
-  const requester = user ? user.displayName! : ""
+  const requester = user ? user.displayName! : "";
 
   const requestForm = useForm<z.infer<typeof requestSchema>>({
     resolver: zodResolver(requestSchema),
@@ -43,10 +43,7 @@ function TopicRequestForm() {
 
   return (
     <Form {...requestForm}>
-      <form
-        onSubmit={requestForm.handleSubmit(onSubmit)}
-        className="form"
-      >
+      <form onSubmit={requestForm.handleSubmit(onSubmit)} className="form">
         <FormField
           control={requestForm.control}
           name="requester"

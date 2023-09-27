@@ -10,7 +10,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { LogIn, LogOut, PersonStanding, UserCircle2 } from "lucide-react";
-import { useAuthContext } from "./AuthContext";
+import { useAuthContext } from "./AuthProvider";
 import { useRouter } from "next/navigation";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "@/firebase.config";
