@@ -396,14 +396,23 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .mailing-form {
-  @apply max-w-[12rem] md:min-w-[25rem];
+  @apply min-w-[15rem] md:min-w-[25rem];
 }
 
 .mailing-form__input {
   @apply p-4 border-r-0 rounded-r-none;
 }
+
 .mailing-form__button {
   @apply py-4 px-2 sm:px-4 border border-l-0 border-input rounded-l-none;
+}
+
+.mailing-form__button_subscribe {
+  @apply hidden sm:inline-flex;
+}
+
+.mailing-form__button_mail {
+  @apply sm:hidden;
 }
 
 .entry-container {

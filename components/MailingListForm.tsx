@@ -11,6 +11,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { Mail } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "not a valid email address :(" }),
@@ -50,8 +51,11 @@ function MailingListForm() {
             )}
           ></FormField>
         </form>
-        <Button className="mailing-form__button" type="submit">
+        <Button className="mailing-form__button mailing-form__button_subscribe" type="submit">
           subscribe
+        </Button>
+        <Button className="mailing-form__button mailing-form__button_mail" type="submit">
+          <Mail></Mail>
         </Button>
       </div>
     </Form>
