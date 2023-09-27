@@ -48,7 +48,7 @@ export default function Page() {
                         <DialogTitle>you aren&apos;t logged in!</DialogTitle>
                         <DialogDescription>
                           in order to give you credit, it&apos;s important that
-                          you log in
+                          you are!
                         </DialogDescription>
                       </DialogHeader>
                       <Button
