@@ -30,6 +30,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Loader } from "lucide-react";
+import { FirebaseError } from "firebase/app";
 
 const signupSchema = z
   .object({
@@ -58,7 +59,6 @@ const signupSchema = z
 
 export default function SignupForm() {
   const router = useRouter();
-
   const signupForm = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -79,14 +79,25 @@ export default function SignupForm() {
             updateProfile(user, {
               displayName: values.displayName,
             });
+            router.push("/");
           })
-          .catch((error) => {
-            toast({
-              variant: "destructive",
-              title: "oops, try again!",
-              description: "there was an error signing you up :(",
-            });
-            console.error("Error signing user up: ", error);
+          .catch((error: FirebaseError) => {
+            if (error.code == "auth/email-already-in-use") {
+              toast({
+                variant: "destructive",
+                title: "email already in use! :(",
+                description:
+                  "an account exists with that email. try logging in!",
+              });
+              console.error("Error signing user up: ", error);
+            } else {
+              toast({
+                variant: "destructive",
+                title: "oops! :(",
+                description: "there was an issue signing you up. try again?",
+              });
+              console.error("Error signing user up: ", error);
+            }
           });
       })
       .catch((error) => {
