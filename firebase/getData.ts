@@ -39,9 +39,9 @@ export async function getCollection(coln: Collection) {
 }
 
 export async function getDocsInColnByField(
+  coln: Collection,
   fieldName: string,
-  fieldValue: string,
-  coln: Collection
+  fieldValue: string
 ) {
   let result: string[] | null = null;
   let error = null;
