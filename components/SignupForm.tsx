@@ -80,12 +80,12 @@ export default function SignupForm() {
               displayName: values.displayName,
             });
             addUser(user.email!, values.displayName);
-            router.push("/");
             toast({
               title: `what's up, ${values.displayName}?`,
               description:
                 "your account was made successfully!",
             });
+            router.push("/");
           })
           .catch((error: FirebaseError) => {
             if (error.code == "auth/email-already-in-use") {
