@@ -458,3 +458,7 @@ bg-stone-800: hsl(5 13% 16%) */
 .link {
   @apply mt-8 after:block after:w-full after:h-0.5 after:rounded after:m-0 after:bg-darkgreen after:dark:bg-baseyellow;
 }
+
+.dialog-content {
+  @apply w-[90svw] sm:max-w-[40rem] rounded-3xl;
+}

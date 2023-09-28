@@ -24,7 +24,7 @@ function RequestDialog() {
           request a topic for us to cover!
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="dialog-content">
         {user ? (
           <>
             <DialogHeader>
