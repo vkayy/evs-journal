@@ -64,6 +64,7 @@ function TopicRequestForm() {
   async function addRequest(values: z.infer<typeof requestSchema>) {
     const { error } = await addDataAutoID("requests", {
       email: values.requesterEmail,
+      displayName: values.requesterDisplayName,
       topicTitle: values.topicTitle,
       topicDescription: values.topicDescription,
     });
