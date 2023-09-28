@@ -55,7 +55,7 @@ export async function addComment(
   entryID: string,
   email: string,
   parentCommentID: string | null,
-  text: string,
+  text: string
 ) {
   const { error } = await addDataAutoID("comments", {
     entryID,
@@ -92,25 +92,40 @@ export async function addEntry(
     toast({
       variant: "destructive",
       title: "oops! :(",
-      description: "there was an issue saving your comment. try again?",
+      description: "there was an issue posting your entry. try again?",
     });
-    console.error("Error adding comment to database: ", error);
+    console.error("Error adding entry to database: ", error);
   }
 }
 
-export async function addEntryLike(
-  email: string,
-  commentID: string,
-) {
-  const { error } = await addDataAutoID("entries", {
+export async function addEntryLike(email: string, entryID: string) {
+  const { error } = await addDataAutoID("entryLikes", {
+    email,
+    entryID,
   });
 
   if (error) {
     toast({
       variant: "destructive",
       title: "oops! :(",
-      description: "there was an issue saving your comment. try again?",
+      description: "there was an issue liking the entry. try again?",
     });
-    console.error("Error adding comment to database: ", error);
+    console.error("Error adding entry like to database: ", error);
+  }
+}
+
+export async function addCommentLike(email: string, commentID: string) {
+  const { error } = await addDataAutoID("commentLikes", {
+    email,
+    commentID,
+  });
+
+  if (error) {
+    toast({
+      variant: "destructive",
+      title: "oops! :(",
+      description: "there was an issue liking the comment. try again?",
+    });
+    console.error("Error adding comment like to database: ", error);
   }
 }
