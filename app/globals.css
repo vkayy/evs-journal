@@ -218,7 +218,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section {
-  @apply max-w-7xl h-[100svh] lg:min-h-screen flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto relative pb-16 mt-32 sm:mt-20;
+  @apply max-w-7xl min-h-[100svh] lg:min-h-screen flex flex-col-reverse justify-center sm:flex-row items-center gap-4 px-6 mx-auto relative pb-12 pt-16 sm:pt-0 sm:mt-20;
 }
 
 .hero-section__article {
@@ -242,7 +242,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .hero-section__article_right {
-  @apply max-w-[16rem] sm:max-w-[calc(100svh-6rem)] flex justify-center items-center;
+  @apply max-w-[16rem] sm:max-w-[calc(100svh-6rem)] sm:pb-4 flex justify-center items-center;
 }
 
 .image {
@@ -335,7 +335,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .card {
-  @apply p-3 lg:p-6 shadow-xl max-w-[80rem];
+  @apply lg:p-6 shadow-xl max-w-[80rem];
 }
 /* removed: rounded-3xl bg-darkyellow dark:bg-stone-800 shadow-xl  */
 
