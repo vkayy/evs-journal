@@ -423,6 +423,10 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply text-base;
 } 
 
+.request-container {
+  @apply max-w-full flex justify-center items-center;
+}
+
 .signup-card, .login-card {
   @apply pt-4 mx-auto max-w-[80%] sm:max-w-[60%] lg:max-w-[50%];
 }

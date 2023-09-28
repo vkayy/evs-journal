@@ -19,29 +19,46 @@ import { useAuthContext } from "./AuthProvider";
 import { addDataAutoID, addDataSetID } from "@/firebase/addData";
 import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const requestSchema = z.object({
   requesterEmail: z.string().email(),
   requesterDisplayName: z.string().min(1),
-  topic: z.string().min(3, {
-    message:
-      "could you be a bit more specific? we might not know what you mean!",
-  }),
+  topicTitle: z
+    .string()
+    .min(1, {
+      message:
+        "could you be a bit more specific? we might not know what you mean!",
+    })
+    .max(30, {
+      message: "you've passed the character limit!",
+    }),
+  topicDescription: z
+    .string()
+    .min(1, {
+      message: "even a brief description would help us out a lot!",
+    })
+    .max(250, {
+      message: "you've passed the character limit!",
+    }),
 });
 
 function TopicRequestForm() {
   const router = useRouter();
 
   const { user } = useAuthContext();
+
   const requesterEmail = user!.email!;
   const requesterDisplayName = user!.displayName!;
 
   const requestForm = useForm<z.infer<typeof requestSchema>>({
+    mode: `onChange`,
     resolver: zodResolver(requestSchema),
     defaultValues: {
       requesterEmail,
       requesterDisplayName,
-      topic: "",
+      topicTitle: "",
+      topicDescription: "",
     },
   });
 
@@ -74,7 +91,7 @@ function TopicRequestForm() {
           name="requesterEmail"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>your email</FormLabel>
+              <FormLabel>your account email</FormLabel>
               <FormControl>
                 <Input {...field} disabled></Input>
               </FormControl>
@@ -95,15 +112,34 @@ function TopicRequestForm() {
             </FormItem>
           )}
         ></FormField>
-
         <FormField
           control={requestForm.control}
-          name="topic"
+          name="topicTitle"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>your topic</FormLabel>
+              <FormLabel>topic title</FormLabel>
               <FormControl>
-                <Textarea {...field}></Textarea>
+                <Input
+                  placeholder="give us a general title..."
+                  {...field}
+                ></Input>
+              </FormControl>
+              <FormMessage></FormMessage>
+            </FormItem>
+          )}
+        ></FormField>
+        <FormField
+          control={requestForm.control}
+          name="topicDescription"
+          render={({ field }) => (
+            <FormItem className="">
+              <FormLabel>topic description</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="tell us a little more about your interest..."
+                  rows={6}
+                  {...field}
+                ></Textarea>
               </FormControl>
               <FormMessage></FormMessage>
             </FormItem>

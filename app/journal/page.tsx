@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { useAuthContext } from "@/components/AuthProvider";
 import { useRouter } from "next/navigation";
 import RequestDialog from "@/components/RequestDialog";
+import { Card } from "@/components/ui/card";
 
 export default function Page() {
   const { user } = useAuthContext();
@@ -18,6 +19,13 @@ export default function Page() {
             <div className="request-dialog-container">
               <RequestDialog></RequestDialog>
             </div>
+            <article className="request-article">
+              <div className="request-container">
+                <Card>
+                  
+                </Card>
+              </div>
+            </article>
           </>
         </MainSection>
       </main>
