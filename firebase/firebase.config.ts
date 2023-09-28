@@ -12,6 +12,15 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+export enum Collection {
+  users = "users",
+  entries = "entries",
+  comments = "comments",
+  entryLikes = "entryLikes",
+  commentLikes = "commentLikes",
+  requests = "requests",
+}
+
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

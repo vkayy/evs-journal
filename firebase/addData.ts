@@ -1,15 +1,17 @@
 "use client";
 
 import { toast } from "@/components/ui/use-toast";
-import { app, db } from "./firebase.config";
+import { db } from "./firebase.config";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 
 export async function addDataAutoID(coln: string, data: object) {
   let result = null;
   let error = null;
 
+  let colnRef = collection(db, coln);
+
   try {
-    (result = await addDoc(collection(db, coln), data)),
+    (result = await addDoc(colnRef, data)),
       {
         merge: true,
       };
@@ -24,8 +26,10 @@ export async function addDataSetID(coln: string, id: string, data: object) {
   let result = null;
   let error;
 
+  let docRef = doc(db, coln, id);
+
   try {
-    (result = await setDoc(doc(db, coln, id), data)),
+    (result = await setDoc(docRef, data)),
       {
         merge: true,
       };
