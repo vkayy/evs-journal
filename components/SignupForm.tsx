@@ -28,9 +28,8 @@ import { app } from "@/firebase/firebase.config";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
-import { Loader } from "lucide-react";
 import { FirebaseError } from "firebase/app";
+import { addDataSetID, addUser } from "@/firebase/addData";
 
 const signupSchema = z
   .object({
@@ -69,6 +68,7 @@ export default function SignupForm() {
     },
   });
 
+
   function onSubmit(values: z.infer<typeof signupSchema>) {
     const auth = getAuth(app);
     setPersistence(auth, browserSessionPersistence)
@@ -79,6 +79,7 @@ export default function SignupForm() {
             updateProfile(user, {
               displayName: values.displayName,
             });
+            addUser(user.email!, values.displayName);
             router.push("/");
           })
           .catch((error: FirebaseError) => {
