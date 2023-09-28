@@ -428,7 +428,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .entry-article {
-  @apply max-w-full flex flex-col justify-center items-center;
+  @apply max-w-full flex flex-col justify-center items-center gap-12;
 }
 
 .request-container {

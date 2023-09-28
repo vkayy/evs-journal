@@ -1,4 +1,5 @@
 import MainSection from "@/components/MainSection";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -8,6 +9,11 @@ export default function Page() {
           <>
             <article className="entry-article">
               <p className="text text_paragraph">no posts yet!</p>
+              <p className="text text_paragraph inline">
+                <Link href="/requests" className="link">
+                  why not make a request?
+                </Link>
+              </p>
             </article>
           </>
         </MainSection>
