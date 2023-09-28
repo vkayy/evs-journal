@@ -18,7 +18,7 @@ interface RequestCardListProps {
 
 function RequestCardList({ docArray }: RequestCardListProps) {
   return docArray.map((doc) => (
-    <Dialog>
+    <Dialog key={doc.id}>
       <DialogTrigger asChild>
         <Card className="request-card">
           <CardHeader>
