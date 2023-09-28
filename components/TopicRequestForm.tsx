@@ -62,7 +62,11 @@ function TopicRequestForm() {
   });
 
   async function addRequest(values: z.infer<typeof requestSchema>) {
-    const { error } = await addDataAutoID("requests", values);
+    const { error } = await addDataAutoID("requests", {
+      email: values.requesterEmail,
+      topicTitle: values.topicTitle,
+      topicDescription: values.topicDescription,
+    });
     if (error) {
       toast({
         variant: "destructive",
