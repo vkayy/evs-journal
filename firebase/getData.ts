@@ -18,6 +18,7 @@ export async function getDocument(coln: Collection, id: string) {
     result = await getDoc(docRef);
   } catch (e) {
     error = e;
+    console.error("Error retrieving doc from database: ", error);
   }
 
   return { result, error };
@@ -33,6 +34,7 @@ export async function getCollection(coln: Collection) {
     result = await getDocs(colnRef);
   } catch (e) {
     error = e;
+    console.error("Error retrieving collection from database: ", error);
   }
 
   return { result, error };
@@ -58,6 +60,7 @@ export async function getDocsInColnByField(
     });
   } catch (e) {
     error = e;
+    console.error("Error retrieving queried docs from database: ", error);
   }
 
   return { result, error };
