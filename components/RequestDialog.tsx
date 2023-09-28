@@ -20,8 +20,8 @@ function RequestDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="button request-container__button button_hover_shadow button_active_scale">
-          request a topic for us to cover!
+        <Button className="button request-container__button button_hover_scale button_hover_shadow button_active_scale">
+          have an idea? let us know!
         </Button>
       </DialogTrigger>
       <DialogContent className="dialog-content">

@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useAuthContext } from "./AuthProvider";
-import { addDataAutoID, addDataSetID } from "@/firebase/addData";
+import { addDataAutoID } from "@/firebase/addData";
 import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
 
@@ -27,7 +27,7 @@ const requestSchema = z.object({
     .string()
     .min(1, {
       message:
-        "could you be a bit more specific? we might not know what you mean!",
+        "could you be a bit more specific?",
     })
     .max(30, {
       message: "you've passed the character limit!",
@@ -35,7 +35,7 @@ const requestSchema = z.object({
   topicDescription: z
     .string()
     .min(1, {
-      message: "even a brief description would help us out a lot!",
+      message: "even a brief description would help!",
     })
     .max(250, {
       message: "you've passed the character limit!",
@@ -148,7 +148,7 @@ function TopicRequestForm() {
             </FormItem>
           )}
         ></FormField>
-        <Button type="submit" className="button button_active_scale">
+        <Button type="submit" className="button button_hover_scale button_active_scale">
           send your request over!
         </Button>
       </form>

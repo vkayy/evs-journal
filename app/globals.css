@@ -302,8 +302,12 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply hover:text-darkgreen dark:hover:text-baseyellow hover:bg-white/50 dark:hover:bg-stone-800;
 }
 
+.button_hover_scale {
+  @apply hover:transform hover:scale-[1.025];
+}
+
 .button_active_scale {
-  @apply active:transform active:scale-95;
+  @apply active:transform active:scale-[0.975];
 }
 
 .general-section {
@@ -419,7 +423,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply flex justify-center items-center;
 }
 
-.request-dialog-container__button {
+.request-container__button {
   @apply text-lg;
 } 
 
