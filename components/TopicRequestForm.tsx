@@ -140,7 +140,7 @@ function TopicRequestForm() {
               <FormControl>
                 <Textarea
                   placeholder="tell us a little more about your interest..."
-                  rows={7}
+                  rows={3}
                   {...field}
                 ></Textarea>
               </FormControl>

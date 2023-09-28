@@ -464,7 +464,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .link_paragraph{
-  @apply  after:bg-stone-600 dark:after:bg-stone-400;
+  @apply after:bg-stone-600 dark:after:bg-stone-400;
 }
 
 .dialog-content {
