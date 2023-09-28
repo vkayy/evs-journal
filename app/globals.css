@@ -50,7 +50,7 @@
     --secondary: 56 62% 86%;
     --secondary-foreground: 56 15% 21%;
  
-    --muted: 60 4.8% 95.9%;
+    --muted: 5 15% 80%;
     --muted-foreground: 25 5.3% 44.7%;
     /* not changed */
  
@@ -92,7 +92,7 @@ bg-stone-800: hsl(5 13% 16%) */
     --secondary: 5 13% 16%;
     --secondary-foreground: 56 62% 86%;
  
-    --muted: 12 6.5% 15.1%;
+    --muted: 12 6.5% 22%;
     --muted-foreground: 24 5.4% 63.9%;
     /* not changed */
  
@@ -201,7 +201,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply max-w-full mx-0 min-h-[100svh];
 }
 
-.main_about, .main_journal, .main_signup, .main_login, .main_requests {
+.main_about, .main_journal, .main_signup, .main_login, .main_requests, .main_profile {
   @apply pt-12;
 }
 
