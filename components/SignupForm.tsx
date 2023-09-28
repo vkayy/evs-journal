@@ -81,6 +81,11 @@ export default function SignupForm() {
             });
             addUser(user.email!, values.displayName);
             router.push("/");
+            toast({
+              title: `what's up, ${values.displayName}?`,
+              description:
+                "your account was made successfully!",
+            });
           })
           .catch((error: FirebaseError) => {
             if (error.code == "auth/email-already-in-use") {
