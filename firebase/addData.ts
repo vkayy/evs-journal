@@ -39,6 +39,7 @@ export async function addDataSetID(coln: string, id: string, data: object) {
 export async function addUser(email: string, displayName: string) {
   const { error } = await addDataSetID("users", email, {
     displayName,
+    profilePicture: "",
   });
 
   if (error) {
