@@ -10,7 +10,7 @@ export default function Page() {
             <article className="entry-article">
               <p className="text text_paragraph">no posts yet!</p>
               <p className="text text_paragraph inline">
-                <Link href="/requests" className="link">
+                <Link href="/requests" className="link link_paragraph">
                   why not make a request?
                 </Link>
               </p>
