@@ -24,8 +24,8 @@ function SheetNavbar({ navItems }: NavbarProps) {
       </SheetTrigger>
       <SheetContent side="right">
         <SheetHeader>
-          <SheetTitle>navigation</SheetTitle>
-          <SheetDescription>find your way around our website!</SheetDescription>
+          <SheetTitle className="text-center">navigation</SheetTitle>
+          <SheetDescription className="text-center">find your way around our website!</SheetDescription>
         </SheetHeader>
         <ul className="link-menu navbar__link-menu link-menu_axis_y mt-12">
           <LinkMenu navItems={navItems} purpose="sheet"></LinkMenu>

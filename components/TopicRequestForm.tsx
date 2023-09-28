@@ -80,6 +80,7 @@ function TopicRequestForm() {
       title: `thanks, ${values.requesterDisplayName}!`,
       description: "we'll check out your request asap!",
     });
+    router.refresh();
   }
   function onSubmit(values: z.infer<typeof requestSchema>) {
     addRequest(values);

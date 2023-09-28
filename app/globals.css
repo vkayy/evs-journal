@@ -201,7 +201,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply max-w-full mx-0 min-h-[100svh];
 }
 
-.main_about, .main_journal, .main_signup, .main_login {
+.main_about, .main_journal, .main_signup, .main_login, .main_requests {
   @apply pt-12;
 }
 
@@ -420,11 +420,23 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .request-dialog-container__button {
-  @apply text-base;
+  @apply text-lg;
 } 
 
+.request-article {
+  @apply max-w-full flex flex-col gap-12 justify-center items-center mt-12;
+}
+
+.entry-article {
+  @apply max-w-full flex flex-col justify-center items-center;
+}
+
 .request-container {
-  @apply max-w-full flex justify-center items-center;
+  @apply max-w-full flex flex-wrap justify-center items-center gap-4;
+}
+
+.request-card {
+  @apply w-[20rem] h-[10rem] flex justify-center items-center hover:transform hover:scale-105 active:transform active:scale-95 transition-all duration-300 hover:cursor-pointer;
 }
 
 .signup-card, .login-card {

@@ -24,6 +24,7 @@ export default function RootLayout({
   const navItems = [
     { key: "home", path: "/", text: "home" },
     { key: "journal", path: "/journal", text: "journal" },
+    { key: "requests", path: "/requests", text: "requests" },
     { key: "about us", path: "/about", text: "about us" },
   ];
 

@@ -1,4 +1,5 @@
 import {
+  DocumentData,
   collection,
   doc,
   getDoc,
@@ -8,6 +9,11 @@ import {
 } from "firebase/firestore";
 import { Collection, db } from "./firebase.config";
 
+export interface DocObject {
+  id: string;
+  data: DocumentData;
+}
+
 export async function getDocument(coln: Collection, id: string) {
   let result;
   let error;
@@ -15,7 +21,8 @@ export async function getDocument(coln: Collection, id: string) {
   let docRef = doc(db, coln, id);
 
   try {
-    result = await getDoc(docRef);
+    const docSnapshot = await getDoc(docRef);
+    result = { id: docSnapshot.id, data: docSnapshot.data };
   } catch (e) {
     error = e;
     console.error("Error retrieving doc from database: ", error);
@@ -25,13 +32,17 @@ export async function getDocument(coln: Collection, id: string) {
 }
 
 export async function getCollection(coln: Collection) {
-  let result = null;
+  let result: DocObject[] | null = null;
   let error = null;
 
   let colnRef = collection(db, coln);
 
   try {
-    result = await getDocs(colnRef);
+    const docsSnapshot = await getDocs(colnRef);
+    result = [];
+    docsSnapshot.forEach((docSnapshot) => {
+      result!.push({ id: docSnapshot.id, data: docSnapshot.data() });
+    });
   } catch (e) {
     error = e;
     console.error("Error retrieving collection from database: ", error);
@@ -45,7 +56,7 @@ export async function getDocsInColnByField(
   fieldName: string,
   fieldValue: string
 ) {
-  let result: string[] | null = null;
+  let result: DocObject[] | null = null;
   let error = null;
 
   const docQuery = query(
@@ -55,8 +66,8 @@ export async function getDocsInColnByField(
   try {
     const docQuerySnapshot = await getDocs(docQuery);
     result = [];
-    docQuerySnapshot.forEach((doc) => {
-      result!.push(doc.id);
+    docQuerySnapshot.forEach((docSnapshot) => {
+      result!.push({ id: docSnapshot.id, data: docSnapshot.data() });
     });
   } catch (e) {
     error = e;

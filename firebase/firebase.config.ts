@@ -12,6 +12,42 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+export interface UserFields {
+  displayName: string;
+  profilePicture: string;
+}
+
+export interface EntryFields {
+  authors: string[];
+  title: string;
+  description: string;
+  content: string;
+}
+
+export interface CommentFields {
+  entryID: string;
+  email: string;
+  parentCommentID: string;
+  text: string;
+  timestamp: Date;
+}
+
+export interface EntryLikeFields {
+  email: string;
+  entryID: string;
+}
+
+export interface RequestFields {
+  email: string;
+  topicTitle: string;
+  topicDescription: string;
+}
+
+export interface CommentLikeFields {
+  email: string;
+  commentID: string;
+}
+
 export enum Collection {
   users = "users",
   entries = "entries",
