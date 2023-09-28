@@ -79,9 +79,7 @@ function TopicRequestForm() {
       title: `thanks, ${values.requesterDisplayName}!`,
       description: "we'll check out your request asap!",
     });
-    router.push("/journal");
   }
-
   function onSubmit(values: z.infer<typeof requestSchema>) {
     addRequest(values);
   }
