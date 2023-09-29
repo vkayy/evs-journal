@@ -36,7 +36,7 @@ function RequestCardList({ docArray }: RequestCardListProps) {
             requested by {doc.data.displayName}
           </DialogDescription>
         </DialogHeader>
-        <p className="text-base">"{doc.data.topicDescription}"</p>
+        <p className="text-base">&#34;{doc.data.topicDescription}&#34;</p>
       </DialogContent>
     </Dialog>
   ));
