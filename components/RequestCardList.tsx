@@ -29,14 +29,14 @@ function RequestCardList({ docArray }: RequestCardListProps) {
           </CardHeader>
         </Card>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="dialog-content">
         <DialogHeader>
-          <DialogTitle>{doc.data.topicTitle}</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-left">{doc.data.topicTitle}</DialogTitle>
+          <DialogDescription className="text-left">
             requested by {doc.data.displayName}
           </DialogDescription>
         </DialogHeader>
-        <p className="text-base">{doc.data.topicDescription}</p>
+        <p className="text-base">"{doc.data.topicDescription}"</p>
       </DialogContent>
     </Dialog>
   ));
