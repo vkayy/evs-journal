@@ -37,7 +37,9 @@ const loginSchema = z.object({
     .email({
       message: "not a valid email!",
     }),
-  password: z.string(),
+  password: z.string().min(1, {
+    message: "please enter your password!"
+  }),
 });
 
 export default function LoginForm() {

@@ -14,6 +14,11 @@ const readexPro = Readex_Pro({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ev's journal",
   description: "our experience with self-growth, stoicism, and relationships.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  }
 };
 
 export default function RootLayout({

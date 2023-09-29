@@ -69,17 +69,9 @@ function TopicRequestForm() {
       topicDescription: values.topicDescription,
     });
     if (error) {
-      toast({
-        variant: "destructive",
-        title: "oh no, try again!",
-        description: "there was an issue sending your request :(",
-      });
       console.error("Error adding request: ", error);
+      router.push("/journal")
     }
-    toast({
-      title: `thanks, ${values.requesterDisplayName}!`,
-      description: "we'll check out your request asap!",
-    });
     router.refresh();
   }
   function onSubmit(values: z.infer<typeof requestSchema>) {
