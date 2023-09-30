@@ -4,13 +4,15 @@ import { Collection } from "@/firebase/firebase.config";
 import RequestCardList from "@/components/RequestCardList";
 import MainSection from "@/components/MainSection";
 
+export const revalidate = 1;
+
 export default async function Page() {
   const { result, error } = await getCollection(Collection.requests);
 
   if (error) {
     return console.error("Error retrieving requests: ", error);
   }
-  console.log(result);
+
   return (
     <main className="main main_requests">
       <MainSection id="requests" heading="requested topics">
