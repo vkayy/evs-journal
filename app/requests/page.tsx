@@ -4,7 +4,7 @@ import { Collection } from "@/firebase/firebase.config";
 import RequestCardList from "@/components/RequestCardList";
 import MainSection from "@/components/MainSection";
 
-export const revalidate = 0.1;
+export const revalidate = 0;
 
 export default async function Page() {
   const { result, error } = await getCollection(Collection.requests);
