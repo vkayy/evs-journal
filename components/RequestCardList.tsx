@@ -26,8 +26,8 @@ function RequestCardList({ docArray }: RequestCardListProps) {
   const router = useRouter();
 
   return docArray.map((doc) => (
-    <div className="request-item">
-      <Dialog key={doc.id}>
+    <div className="request-item" key={doc.id}>
+      <Dialog>
         <DialogTrigger asChild>
           <Card className="request-card">
             <CardHeader>
@@ -35,7 +35,8 @@ function RequestCardList({ docArray }: RequestCardListProps) {
                 {doc.data.topicTitle}
               </CardTitle>
               <CardDescription className="text-center">
-                requested by {doc.data.email === user?.email ? "you" : doc.data.displayName}
+                requested by{" "}
+                {doc.data.email === user?.email ? "you" : doc.data.displayName}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -46,23 +47,31 @@ function RequestCardList({ docArray }: RequestCardListProps) {
               {doc.data.topicTitle}
             </DialogTitle>
             <DialogDescription className="text-left">
-              requested by {doc.data.email === user?.email ? "you" : doc.data.displayName}
+              requested by{" "}
+              {doc.data.email === user?.email ? "you" : doc.data.displayName}
             </DialogDescription>
           </DialogHeader>
           <p className="text-base">&#34;{doc.data.topicDescription}&#34;</p>
           {user?.email === doc.data.email ? (
             <div className="request-card__button-container">
-              <Button variant="outline" className="request-card__button" onClick={() => {
-                router.push(`/requests/${doc.id}/`)
-              }}>
+              <Button
+                variant="outline"
+                className="request-card__button"
+                onClick={() => {
+                  router.push(`/requests/${doc.id}/`);
+                }}
+              >
                 edit request
               </Button>
               <Button
                 variant="outline"
                 className="request-card__button"
                 onClick={() => {
-                  deleteDocument(Collection.requests, doc.id);
-                  window.location.reload();
+                  async function handleDelete() {
+                    await deleteDocument(Collection.requests, doc.id);
+                    window.location.reload();
+                  }
+                  handleDelete();
                 }}
               >
                 delete request

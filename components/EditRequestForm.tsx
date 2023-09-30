@@ -51,6 +51,20 @@ export default function EditRequestForm() {
   const [topicTitle, setTopicTitle] = useState<string>("");
   const [topicDescription, setTopicDescription] = useState<string>("");
 
+  const requesterEmail = user!.email!;
+  const requesterDisplayName = user!.displayName!;
+
+  const requestForm = useForm<z.infer<typeof requestSchema>>({
+    mode: `onChange`,
+    resolver: zodResolver(requestSchema),
+    defaultValues: {
+      requesterEmail,
+      requesterDisplayName,
+      topicTitle,
+      topicDescription,
+    },
+  });
+
   useEffect(() => {
     async function getRequest() {
       try {
@@ -80,25 +94,11 @@ export default function EditRequestForm() {
     }
 
     getRequest();
-  }, [topicTitle, topicDescription]);
+  }, [topicTitle, topicDescription, id, requestForm, user]);
 
   console.log("done!");
   console.log(topicTitle);
   console.log(topicDescription);
-
-  const requesterEmail = user!.email!;
-  const requesterDisplayName = user!.displayName!;
-
-  const requestForm = useForm<z.infer<typeof requestSchema>>({
-    mode: `onChange`,
-    resolver: zodResolver(requestSchema),
-    defaultValues: {
-      requesterEmail,
-      requesterDisplayName,
-      topicTitle,
-      topicDescription,
-    },
-  });
 
   async function updateRequest(values: z.infer<typeof requestSchema>) {
     const { error } = await updateDocument(Collection.requests, id as string, {
@@ -198,7 +198,7 @@ export default function EditRequestForm() {
             <div className="flex justify-center items-center flex-col gap-8 pt-2">
               <h2 className="text text_heading">no access!</h2>
               <p className="text text_paragraph">
-                you don't have permission to edit this request!
+                you don&apos;t have permission to edit this request!
               </p>
             </div>
           )}
