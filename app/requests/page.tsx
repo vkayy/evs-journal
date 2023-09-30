@@ -10,7 +10,7 @@ export default async function Page() {
   if (error) {
     return console.error("Error retrieving requests: ", error);
   }
-
+  console.log(result);
   return (
     <main className="main main_requests">
       <MainSection id="requests" heading="requested topics">
