@@ -476,5 +476,5 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .request-card__button {
-  @apply w-1/2 px-4 py-2
+  @apply w-1/2 p-4;
 }
