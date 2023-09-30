@@ -17,7 +17,7 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useAuthContext } from "./AuthProvider";
 import { addDataAutoID } from "@/firebase/addData";
-import { useRouter } from "next/navigation";
+import { Collection } from "@/firebase/firebase.config";
 
 const requestSchema = z.object({
   requesterEmail: z.string().email(),
@@ -25,8 +25,7 @@ const requestSchema = z.object({
   topicTitle: z
     .string()
     .min(1, {
-      message:
-        "could you be a bit more specific?",
+      message: "could you be a bit more specific?",
     })
     .max(30, {
       message: "you've passed the character limit!",
@@ -42,7 +41,6 @@ const requestSchema = z.object({
 });
 
 function TopicRequestForm() {
-  const router = useRouter();
 
   const { user } = useAuthContext();
 
@@ -61,7 +59,7 @@ function TopicRequestForm() {
   });
 
   async function addRequest(values: z.infer<typeof requestSchema>) {
-    const { error } = await addDataAutoID("requests", {
+    const { error } = await addDataAutoID(Collection.requests, {
       email: values.requesterEmail,
       displayName: values.requesterDisplayName,
       topicTitle: values.topicTitle,
@@ -69,9 +67,8 @@ function TopicRequestForm() {
     });
     if (error) {
       console.error("Error adding request: ", error);
-      router.push("/journal")
     }
-    router.refresh();
+    window.location.reload();
   }
   function onSubmit(values: z.infer<typeof requestSchema>) {
     addRequest(values);
@@ -139,7 +136,10 @@ function TopicRequestForm() {
             </FormItem>
           )}
         ></FormField>
-        <Button type="submit" className="button button_hover_scale button_active_scale">
+        <Button
+          type="submit"
+          className="button button_hover_scale button_active_scale"
+        >
           send your request over!
         </Button>
       </form>

@@ -53,7 +53,7 @@ function LoggedInDropdown() {
           onClick={() => {
             signOut(auth)
               .then(() => {
-                router.push("/login");
+                window.location.reload();
               })
               .catch((error) => {
                 toast({

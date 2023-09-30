@@ -201,7 +201,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply max-w-full mx-0 min-h-[100svh];
 }
 
-.main_about, .main_journal, .main_signup, .main_login, .main_requests, .main_profile {
+.main_about, .main_journal, .main_signup, .main_login, .main_requests, .main_profile, .main_edit-request {
   @apply pt-12;
 }
 
@@ -440,7 +440,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .request-card {
-  @apply w-[100svw] mx-4 sm:mx-0 sm:max-w-[20rem] sm:max-h-[10rem] flex justify-center items-center hover:transform hover:scale-105 active:transform active:scale-95 transition-all duration-300 hover:cursor-pointer;
+  @apply w-[90svw] mx-4 sm:mx-0 sm:max-w-[20rem] sm:max-h-[10rem] flex justify-center items-center hover:transform hover:scale-105 active:transform active:scale-95 transition-all duration-300 hover:cursor-pointer;
 }
 
 .signup-card, .login-card {
@@ -469,4 +469,12 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .dialog-content {
   @apply w-[90svw] sm:max-w-[40rem] rounded-3xl;
+}
+
+.request-card__button-container {
+  @apply flex justify-center items-center gap-4 mt-4;
+}
+
+.request-card__button {
+  @apply w-1/2 px-4 py-2
 }

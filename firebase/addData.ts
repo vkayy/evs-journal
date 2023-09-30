@@ -1,10 +1,10 @@
 "use client";
 
 import { toast } from "@/components/ui/use-toast";
-import { db } from "./firebase.config";
+import { Collection, db } from "./firebase.config";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 
-export async function addDataAutoID(coln: string, data: object) {
+export async function addDataAutoID(coln: Collection, data: object) {
   let result = null;
   let error = null;
 
@@ -22,7 +22,7 @@ export async function addDataAutoID(coln: string, data: object) {
   return { result, error };
 }
 
-export async function addDataSetID(coln: string, id: string, data: object) {
+export async function addDataSetID(coln: Collection, id: string, data: object) {
   let result = null;
   let error;
 
@@ -41,7 +41,7 @@ export async function addDataSetID(coln: string, id: string, data: object) {
 }
 
 export async function addUser(email: string, displayName: string) {
-  const { error } = await addDataSetID("users", email, {
+  const { error } = await addDataSetID(Collection.users, email, {
     displayName,
     profilePicture: "",
   });
@@ -62,7 +62,7 @@ export async function addComment(
   parentCommentID: string | null,
   text: string
 ) {
-  const { error } = await addDataAutoID("comments", {
+  const { error } = await addDataAutoID(Collection.comments, {
     entryID,
     email,
     parentCommentID,
@@ -86,7 +86,7 @@ export async function addEntry(
   description: string,
   content: string
 ) {
-  const { error } = await addDataAutoID("entries", {
+  const { error } = await addDataAutoID(Collection.entries, {
     authors,
     title,
     description,
@@ -104,7 +104,7 @@ export async function addEntry(
 }
 
 export async function addEntryLike(email: string, entryID: string) {
-  const { error } = await addDataAutoID("entryLikes", {
+  const { error } = await addDataAutoID(Collection.entryLikes, {
     email,
     entryID,
   });
@@ -120,7 +120,7 @@ export async function addEntryLike(email: string, entryID: string) {
 }
 
 export async function addCommentLike(email: string, commentID: string) {
-  const { error } = await addDataAutoID("commentLikes", {
+  const { error } = await addDataAutoID(Collection.commentLikes, {
     email,
     commentID,
   });

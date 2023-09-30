@@ -15,14 +15,14 @@ export interface DocObject {
 }
 
 export async function getDocument(coln: Collection, id: string) {
-  let result;
-  let error;
+  let result: DocObject | null = null;
+  let error = null;
 
   let docRef = doc(db, coln, id);
 
   try {
     const docSnapshot = await getDoc(docRef);
-    result = { id: docSnapshot.id, data: docSnapshot.data };
+    result = { id: docSnapshot.id, data: docSnapshot.data()! };
   } catch (e) {
     error = e;
     console.error("Error retrieving doc from database: ", error);
