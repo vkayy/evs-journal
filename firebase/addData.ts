@@ -134,3 +134,19 @@ export async function addCommentLike(email: string, commentID: string) {
     console.error("Error adding comment like to database: ", error);
   }
 }
+
+export async function addRequestLike(email: string, requestID: string) {
+  const { error } = await addDataAutoID(Collection.requestLikes, {
+    email,
+    requestID,
+  });
+
+  if (error) {
+    toast({
+      variant: "destructive",
+      title: "oops! :(",
+      description: "there was an issue liking the comment. try again?",
+    });
+    console.error("Error adding comment like to database: ", error);
+  }
+}

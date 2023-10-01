@@ -55,6 +55,7 @@ export enum Collection {
   entryLikes = "entryLikes",
   commentLikes = "commentLikes",
   requests = "requests",
+  requestLikes = "requestLikes",
 }
 
 export const app = initializeApp(firebaseConfig);
