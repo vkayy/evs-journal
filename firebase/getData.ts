@@ -2,6 +2,7 @@ import {
   DocumentData,
   collection,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
   query,
@@ -75,4 +76,20 @@ export async function getDocsInColnByField(
   }
 
   return { result, error };
+}
+
+export async function getRequestLikeCount(requestID: string) {
+  const requestLikes = collection(db, Collection.requestLikes);
+  const countQuery = query(requestLikes, where("requestID", "==", requestID));
+
+  let result: number | null = null;
+  let error = null;
+
+  try {
+    const countSnapshot = await getCountFromServer(countQuery);
+    result = countSnapshot.data().count;
+  } catch (e) {
+    error = e;
+    console.error("Error retrieving request like count from database: ", error);
+  }
 }
