@@ -9,6 +9,8 @@ import {
   where,
 } from "firebase/firestore";
 import { Collection, db } from "./firebase.config";
+import { User } from "firebase/auth";
+import { request } from "http";
 
 export interface DocObject {
   id: string;
@@ -78,6 +80,28 @@ export async function getDocsInColnByField(
   return { result, error };
 }
 
+export async function getRequestLikeID(requestID: string, email: string) {
+  const requestLikes = collection(db, Collection.requestLikes);
+  const idQuery = query(
+    requestLikes,
+    where("requestID", "==", requestID),
+    where("email", "==", email)
+  );
+
+  let result: string | null = null;
+  let error = null;
+
+  try {
+    const likeSnapshot = await getDocs(idQuery);
+    result = likeSnapshot.docs[0].id;
+  } catch (e) {
+    error = e;
+    console.error("Error retrieving request like ID from database: ", error);
+  }
+
+  return { result, error };
+}
+
 export async function getRequestLikeCount(requestID: string) {
   const requestLikes = collection(db, Collection.requestLikes);
   const countQuery = query(requestLikes, where("requestID", "==", requestID));
@@ -92,4 +116,27 @@ export async function getRequestLikeCount(requestID: string) {
     error = e;
     console.error("Error retrieving request like count from database: ", error);
   }
+
+  return { result, error };
+}
+
+export async function requestLikedByUser(requestID: string, user: User) {
+  const requestLikes = collection(db, Collection.requestLikes);
+
+  let result: Boolean = false;
+  let error = null;
+
+  try {
+    const requestLike = await getDoc(
+      doc(db, Collection.requestLikes, user.email + requestID)
+    );
+    if (requestLike.data()) {
+      result = true;
+    }
+  } catch (e) {
+    error = e;
+    console.error("Error retrieving doc from database: ", error);
+  }
+
+  return { result, error };
 }

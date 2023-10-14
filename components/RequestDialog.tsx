@@ -12,6 +12,7 @@ import {
 import TopicRequestForm from "@/components/TopicRequestForm";
 import { useAuthContext } from "@/components/AuthProvider";
 import { useRouter } from "next/navigation";
+import LogInPrompt from "./LogInPrompt";
 
 function RequestDialog() {
   const { user } = useAuthContext();
@@ -34,21 +35,7 @@ function RequestDialog() {
             <TopicRequestForm></TopicRequestForm>
           </>
         ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle>you aren&apos;t logged in!</DialogTitle>
-              <DialogDescription>
-                in order to give you credit, it&apos;s important that you are!
-              </DialogDescription>
-            </DialogHeader>
-            <Button
-              onClick={() => {
-                router.push("/login");
-              }}
-            >
-              don&apos;t miss out!
-            </Button>
-          </>
+          <LogInPrompt></LogInPrompt>
         )}
       </DialogContent>
     </Dialog>

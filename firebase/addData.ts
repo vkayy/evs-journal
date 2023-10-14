@@ -136,10 +136,14 @@ export async function addCommentLike(email: string, commentID: string) {
 }
 
 export async function addRequestLike(email: string, requestID: string) {
-  const { error } = await addDataAutoID(Collection.requestLikes, {
-    email,
-    requestID,
-  });
+  const { error } = await addDataSetID(
+    Collection.requestLikes,
+    email + requestID,
+    {
+      email,
+      requestID,
+    }
+  );
 
   if (error) {
     toast({

@@ -16,6 +16,7 @@ import { Button } from "./ui/button";
 import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
+import RequestLikeButton from "./RequestLikeButton";
 
 interface RequestCardListProps {
   docArray: DocObject[];
@@ -80,6 +81,7 @@ function RequestCardList({ docArray }: RequestCardListProps) {
           ) : (
             <></>
           )}
+          <RequestLikeButton requestID={doc.id}></RequestLikeButton>
         </DialogContent>
       </Dialog>
     </div>
