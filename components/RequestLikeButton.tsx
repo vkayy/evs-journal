@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { addRequestLike } from "@/firebase/addData";
 import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
+import { useRouter } from "next/navigation";
 
 interface RequestLikeButtonProps {
   requestID: string;
@@ -18,6 +19,7 @@ export default function RequestLikeButton({
   const [likeCount, setLikeCount] = useState<number>(0);
   const [liked, setLiked] = useState<Boolean>(false);
   const [buttonText, setButtonText] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchLikes() {
@@ -45,21 +47,29 @@ export default function RequestLikeButton({
   }
 
   async function handleClick() {
-    if (liked) {
-      await deleteDocument(Collection.requestLikes, user!.email! + requestID);
-      setLikeCount(likeCount - 1);
-      setButtonText(getButtonText(likeCount));
+    if (user) {
+      if (liked) {
+        await deleteDocument(Collection.requestLikes, user!.email! + requestID);
+        setLikeCount(likeCount - 1);
+        setButtonText(getButtonText(likeCount));
+      } else {
+        await addRequestLike(user!.email!, requestID);
+        setLikeCount(likeCount + 1);
+        setButtonText(getButtonText(likeCount));
+      }
+      setLiked(!liked);
     } else {
-      await addRequestLike(user!.email!, requestID);
-      setLikeCount(likeCount + 1);
-      setButtonText(getButtonText(likeCount));
+      router.push("/login");
     }
-    setLiked(!liked);
   }
 
   return (
     <>
-      <Button className="button button_like" variant="default" onClick={handleClick}>
+      <Button
+        className="button button_like"
+        variant="default"
+        onClick={handleClick}
+      >
         <HeartIcon
           fill={liked ? "currentColor" : "none"}
           className="mr-2"

@@ -11,12 +11,10 @@ import {
 } from "@/components/ui/dialog";
 import TopicRequestForm from "@/components/TopicRequestForm";
 import { useAuthContext } from "@/components/AuthProvider";
-import { useRouter } from "next/navigation";
 import LogInPrompt from "./LogInPrompt";
 
 function RequestDialog() {
   const { user } = useAuthContext();
-  const router = useRouter();
 
   return (
     <Dialog>
