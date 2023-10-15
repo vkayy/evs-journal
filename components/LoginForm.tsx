@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  browserLocalPersistence,
   browserSessionPersistence,
   getAuth,
   setPersistence,
@@ -55,7 +56,7 @@ export default function LoginForm() {
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
     const auth = getAuth(app);
-    setPersistence(auth, browserSessionPersistence)
+    setPersistence(auth, browserLocalPersistence)
       .then(() => {
         signInWithEmailAndPassword(auth, values.email, values.password)
           .then(() => {

@@ -16,8 +16,7 @@ import { Button } from "./ui/button";
 import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
-import RequestLikeButton from "./RequestLikeButton";
-import { Timestamp } from "firebase/firestore";
+import EntryLikeButton from "./EntryLikeButton";
 
 interface EntryCardListProps {
   docArray: DocObject[];
@@ -49,10 +48,10 @@ function EntryCardList({ docArray }: EntryCardListProps) {
   }
 
   return docArray.map((doc) => (
-    <div className="request-item" key={doc.id}>
+    <div key={doc.id}>
       <Dialog>
         <DialogTrigger asChild>
-          <Card className="request-card">
+          <Card className="entry-card">
             <CardHeader>
               <CardTitle className="text-center">{doc.data.topic}</CardTitle>
               <CardDescription className="text-center">
@@ -69,18 +68,45 @@ function EntryCardList({ docArray }: EntryCardListProps) {
             </DialogDescription>
           </DialogHeader>
           <p className="text-base">{doc.data.description}</p>
-
-          <div className="entry-card__button-container">
-            <Button
-              variant="default"
-              className="entry-card__button"
-              onClick={() => {
-                window.location.replace(`/journal/${doc.id}/`);
-              }}
-            >
-              read this entry!
-            </Button>
-          </div>
+          <div className="entry-card__button-container"></div>
+          {user?.email == "vkrice2475@gmail.com" ||
+          user?.email == "elenashannae21@gmail.com" ? (
+            <div className="entry-card__button-container">
+              <Button
+                variant="outline"
+                className="entry-card__button"
+                onClick={() => {
+                  router.push(`/journal/edit/${doc.id}/`);
+                }}
+              >
+                edit entry
+              </Button>
+              <Button
+                variant="outline"
+                className="entry-card__button"
+                onClick={() => {
+                  async function handleDelete() {
+                    await deleteDocument(Collection.entries, doc.id);
+                    window.location.reload();
+                  }
+                  handleDelete();
+                }}
+              >
+                delete entry
+              </Button>
+            </div>
+          ) : (
+            <></>
+          )}
+          <Button
+            variant="outline"
+            className="entry-card__button"
+            onClick={() => {
+              window.location.replace(`/journal/${doc.id}/`);
+            }}
+          >
+            read this entry!
+          </Button>
         </DialogContent>
       </Dialog>
     </div>

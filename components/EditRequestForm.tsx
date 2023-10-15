@@ -50,8 +50,8 @@ export default function EditRequestForm() {
   const [topicTitle, setTopicTitle] = useState<string>("");
   const [topicDescription, setTopicDescription] = useState<string>("");
 
-  const requesterEmail = user!.email!;
-  const requesterDisplayName = user!.displayName!;
+  const requesterEmail = user?.email!;
+  const requesterDisplayName = user?.displayName!;
 
   const requestForm = useForm<z.infer<typeof requestSchema>>({
     mode: `onChange`,
@@ -79,8 +79,8 @@ export default function EditRequestForm() {
           setTopicDescription(result?.data.topicDescription);
 
           const initialValues = {
-            requesterEmail: user!.email!,
-            requesterDisplayName: user!.displayName!,
+            requesterEmail: user?.email!,
+            requesterDisplayName: user?.displayName!,
             topicTitle: result?.data.topicTitle || "",
             topicDescription: result?.data.topicDescription || "",
           };
@@ -94,10 +94,6 @@ export default function EditRequestForm() {
 
     getRequest();
   }, [topicTitle, topicDescription, id, requestForm, user]);
-
-  console.log("done!");
-  console.log(topicTitle);
-  console.log(topicDescription);
 
   async function updateRequest(values: z.infer<typeof requestSchema>) {
     const { error } = await updateDocument(Collection.requests, id as string, {

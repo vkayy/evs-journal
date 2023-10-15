@@ -27,7 +27,7 @@ function RequestCardList({ docArray }: RequestCardListProps) {
   const router = useRouter();
 
   return docArray.map((doc) => (
-    <div className="request-item" key={doc.id}>
+    <div key={doc.id}>
       <Dialog>
         <DialogTrigger asChild>
           <Card className="request-card">

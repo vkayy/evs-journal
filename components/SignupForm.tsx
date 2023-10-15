@@ -6,6 +6,7 @@ import {
   updateProfile,
   browserSessionPersistence,
   setPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -70,7 +71,7 @@ export default function SignupForm() {
 
   function onSubmit(values: z.infer<typeof signupSchema>) {
     const auth = getAuth(app);
-    setPersistence(auth, browserSessionPersistence)
+    setPersistence(auth, browserLocalPersistence)
       .then(() => {
         createUserWithEmailAndPassword(auth, values.email, values.password)
           .then((userCredential) => {

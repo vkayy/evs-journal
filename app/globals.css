@@ -437,7 +437,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply flex justify-center items-center;
 }
 
-.request-container__button {
+.request-container__button, .entry-container__button {
   @apply text-lg;
 } 
 
@@ -449,11 +449,11 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply max-w-full flex flex-col justify-center items-center gap-12;
 }
 
-.request-container {
+.request-container, .entry-container {
   @apply max-w-full flex flex-wrap justify-center items-center gap-4;
 }
 
-.request-card {
+.request-card, .entry-card {
   @apply w-[90svw] mx-4 sm:mx-0 sm:max-w-[20rem] sm:max-h-[10rem] flex justify-center items-center hover:transform hover:scale-105 active:transform active:scale-95 transition-all duration-300 hover:cursor-pointer;
 }
 
@@ -494,7 +494,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .entry-card__button-container {
-  @apply flex justify-center items-center gap-4 mt-4;
+  @apply flex justify-center items-center gap-4;
 }
 
 .entry-card__button {
@@ -505,7 +505,7 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply min-w-fit;
 }
 
-.entry-card {
+.entry-output-card {
   @apply w-full mx-auto px-4 sm:px-8 pt-2 pb-4 mt-16;
 }
 

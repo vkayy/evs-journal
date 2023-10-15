@@ -19,11 +19,13 @@ export default async function Page() {
       <MainSection id="journal" heading="our journal entries">
         <article className="entry-article">
           <PostJournalButton></PostJournalButton>
-          {result?.length == 0 ? (
-            <p className="text text_paragraph">no posts yet!</p>
-          ) : (
-            <EntryCardList docArray={result!}></EntryCardList>
-          )}
+          <div className="entry-container">
+            {result?.length == 0 ? (
+              <p className="text text_paragraph">no posts yet!</p>
+            ) : (
+              <EntryCardList docArray={result!}></EntryCardList>
+            )}
+          </div>
           <p className="text text_paragraph inline">
             <Link href="/requests" className="link link_paragraph text-base">
               why not make a request?

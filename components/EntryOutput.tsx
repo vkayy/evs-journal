@@ -7,11 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { DocObject, getDocsInColnByField } from "@/firebase/getData";
+import { DocObject } from "@/firebase/getData";
 import { format } from "date-fns";
 import EntryLikeButton from "./EntryLikeButton";
 import CommentSection from "./CommentSection";
 import CardSeparator from "./CardSeparator";
+import EntryButtons from "./EntryButtons";
 
 interface EntryOutputProps {
   entry: DocObject;
@@ -20,7 +21,7 @@ interface EntryOutputProps {
 async function EntryOutput({ entry }: EntryOutputProps) {
   return (
     <div className="flex flex-col justify-center items-center max-w-2xl mx-auto">
-      <Card className="entry-card">
+      <Card className="entry-output-card">
         <CardHeader>
           <CardTitle className="entry-card__title">
             {format(entry.data.date.toDate(), "dd-MM-yyyy")}
@@ -39,6 +40,7 @@ async function EntryOutput({ entry }: EntryOutputProps) {
         <CardFooter>
           <EntryLikeButton></EntryLikeButton>
         </CardFooter>
+        <EntryButtons entry={entry}></EntryButtons>
       </Card>
       <CommentSection></CommentSection>
     </div>
