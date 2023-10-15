@@ -18,7 +18,7 @@ interface EntryOutputProps {
 function EntryOutput({ entry }: EntryOutputProps) {
   return (
     <>
-      <Card className="max-w-2xl mx-auto px-4 sm:px-8 pt-2 pb-4 md:mt-40">
+      <Card className="max-w-2xl mx-auto px-4 sm:px-8 pt-2 pb-4 mt-16 md:mt-40">
         <CardHeader>
           <CardTitle className="text-left text-lg text-[--muted-foreground]">
             {format(entry.data.date.toDate(), "dd-MM-yyyy")}
