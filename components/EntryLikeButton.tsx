@@ -3,9 +3,9 @@
 import { HeartIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useAuthContext } from "./AuthProvider";
-import { getRequestLikeCount, requestLikedByUser } from "@/firebase/getData";
+import { getEntryLikeCount, entryLikedByUser } from "@/firebase/getData";
 import { useEffect, useState } from "react";
-import { addRequestLike } from "@/firebase/addData";
+import { addEntryLike } from "@/firebase/addData";
 import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
@@ -21,17 +21,17 @@ export default function EntryLikeButton() {
 
   useEffect(() => {
     async function fetchLikes() {
-      const { result } = await getRequestLikeCount(entryID!);
+      const { result } = await getEntryLikeCount(entryID!);
       setLikeCount(result || 0);
       setButtonText(getButtonText(result || 0));
     }
     async function checkLiked() {
-      const { result } = await requestLikedByUser(entryID!, user!);
+      const { result } = await entryLikedByUser(entryID!, user!);
       setLiked(result);
     }
     fetchLikes();
     checkLiked();
-  }, [liked, entryID!, user]);
+  }, [liked, entryID, user]);
 
   function getButtonText(count: number): string {
     switch (count) {
@@ -47,11 +47,11 @@ export default function EntryLikeButton() {
   async function handleClick() {
     if (user) {
       if (liked) {
-        await deleteDocument(Collection.requestLikes, user!.email! + entryID!);
+        await deleteDocument(Collection.entryLikes, user!.email! + entryID!);
         setLikeCount(likeCount - 1);
         setButtonText(getButtonText(likeCount));
       } else {
-        await addRequestLike(user!.email!, entryID!);
+        await addEntryLike(user!.email!, entryID!);
         setLikeCount(likeCount + 1);
         setButtonText(getButtonText(likeCount));
       }

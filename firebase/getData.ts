@@ -120,6 +120,24 @@ export async function getRequestLikeCount(requestID: string) {
   return { result, error };
 }
 
+export async function getEntryLikeCount(entryID: string) {
+  const entryLikes = collection(db, Collection.entryLikes);
+  const countQuery = query(entryLikes, where("entryID", "==", entryID));
+
+  let result: number | null = null;
+  let error = null;
+
+  try {
+    const countSnapshot = await getCountFromServer(countQuery);
+    result = countSnapshot.data().count;
+  } catch (e) {
+    error = e;
+    console.error("Error retrieving entry like count from database: ", error);
+  }
+
+  return { result, error };
+}
+
 export async function requestLikedByUser(requestID: string, user: User) {
   let result: Boolean = false;
   let error = null;
