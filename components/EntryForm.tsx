@@ -52,9 +52,9 @@ const entrySchema = z.object({
   content: z.string().min(1, {
     message: "could you be a bit more informative?",
   }),
-  date: z.date({
-    required_error: "you need a date!",
-  }),
+  // date: z.date({
+  //   required_error: "you need a date!",
+  // }),
 });
 
 export default function EntryForm() {
@@ -71,7 +71,7 @@ export default function EntryForm() {
 
   async function onSubmit(values: z.infer<typeof entrySchema>) {
     await addEntry(
-      values.date,
+      // values.date,
       values.authors,
       values.topic,
       values.description,
@@ -87,7 +87,7 @@ export default function EntryForm() {
           onSubmit={entryForm.handleSubmit(onSubmit)}
           className="form max-w-full"
         >
-          <FormField
+          {/* <FormField
             control={entryForm.control}
             name="date"
             render={({ field }) => (
@@ -128,7 +128,7 @@ export default function EntryForm() {
                 <FormMessage></FormMessage>
               </FormItem>
             )}
-          ></FormField>
+          ></FormField> */}
           <FormField
             control={entryForm.control}
             name="authors"

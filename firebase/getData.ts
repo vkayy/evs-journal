@@ -159,3 +159,10 @@ export async function entryLikedByUser(entryID: string, user: User) {
 
   return { result, error };
 }
+
+export async function getDisplayNameFromEmail(email: string) {
+  const { result } = await getDocument(Collection.users, email);
+  if (result) {
+    return result.data.displayName;
+  }
+}

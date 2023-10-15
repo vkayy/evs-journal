@@ -9,13 +9,11 @@ import { addRequestLike } from "@/firebase/addData";
 import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
+import { useEntryContext } from "./EntryProvider";
 
-interface EntryLikeButtonProps {
-  entryID: string;
-}
-
-export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
+export default function EntryLikeButton() {
   const { user } = useAuthContext();
+  const { entryID } = useEntryContext();
   const [likeCount, setLikeCount] = useState<number>(0);
   const [liked, setLiked] = useState<Boolean>(false);
   const [buttonText, setButtonText] = useState<string>("");
@@ -23,17 +21,17 @@ export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
 
   useEffect(() => {
     async function fetchLikes() {
-      const { result } = await getRequestLikeCount(entryID);
+      const { result } = await getRequestLikeCount(entryID!);
       setLikeCount(result || 0);
       setButtonText(getButtonText(result || 0));
     }
     async function checkLiked() {
-      const { result } = await requestLikedByUser(entryID, user!);
+      const { result } = await requestLikedByUser(entryID!, user!);
       setLiked(result);
     }
     fetchLikes();
     checkLiked();
-  }, [liked, entryID, user]);
+  }, [liked, entryID!, user]);
 
   function getButtonText(count: number): string {
     switch (count) {
@@ -49,11 +47,11 @@ export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
   async function handleClick() {
     if (user) {
       if (liked) {
-        await deleteDocument(Collection.requestLikes, user!.email! + entryID);
+        await deleteDocument(Collection.requestLikes, user!.email! + entryID!);
         setLikeCount(likeCount - 1);
         setButtonText(getButtonText(likeCount));
       } else {
-        await addRequestLike(user!.email!, entryID);
+        await addRequestLike(user!.email!, entryID!);
         setLikeCount(likeCount + 1);
         setButtonText(getButtonText(likeCount));
       }
@@ -67,7 +65,7 @@ export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
     <>
       <Button
         className="button button_like mt-4"
-        variant="default"
+        variant="outline"
         onClick={handleClick}
       >
         <HeartIcon

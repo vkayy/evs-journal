@@ -1,4 +1,6 @@
+import { CommentProvider } from "@/components/CommentProvider";
 import EntryOutput from "@/components/EntryOutput";
+import EntryProvider from "@/components/EntryProvider";
 import MainSection from "@/components/MainSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collection } from "@/firebase/firebase.config";
@@ -26,7 +28,11 @@ export default async function Page({ params }: { params: { id: string } }) {
         </MainSection>
       ) : (
         <MainSection id="journal-entry" heading="">
-          <EntryOutput entry={result}></EntryOutput>
+          <EntryProvider entryID={params.id}>
+            <CommentProvider>
+              <EntryOutput entry={result}></EntryOutput>
+            </CommentProvider>
+          </EntryProvider>
         </MainSection>
       )}
     </main>

@@ -81,7 +81,7 @@ export async function addComment(
 }
 
 export async function addEntry(
-  date: Date,
+  // date: Date,
   authors: string,
   topic: string,
   description: string,
@@ -91,7 +91,8 @@ export async function addEntry(
     Collection.entries,
     topic.split(" ").join("-"),
     {
-      date,
+      // date,
+      date: new Date(),
       authors,
       topic,
       description,

@@ -7,39 +7,41 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { DocObject } from "@/firebase/getData";
+import { DocObject, getDocsInColnByField } from "@/firebase/getData";
 import { format } from "date-fns";
 import EntryLikeButton from "./EntryLikeButton";
+import CommentSection from "./CommentSection";
+import CardSeparator from "./CardSeparator";
 
 interface EntryOutputProps {
   entry: DocObject;
 }
 
-function EntryOutput({ entry }: EntryOutputProps) {
+async function EntryOutput({ entry }: EntryOutputProps) {
   return (
-    <>
-      <Card className="max-w-2xl mx-auto px-4 sm:px-8 pt-2 pb-4 mt-16 md:mt-40">
+    <div className="flex flex-col justify-center items-center max-w-2xl mx-auto">
+      <Card className="entry-card">
         <CardHeader>
-          <CardTitle className="text-left text-lg text-[--muted-foreground]">
+          <CardTitle className="entry-card__title">
             {format(entry.data.date.toDate(), "dd-MM-yyyy")}
           </CardTitle>
-          <br />
-          <h1 className="text-left text_heading">{entry.data.topic}</h1>
-          <CardDescription className="text-left text-base">
+          <h1 className="entry-card__heading">{entry.data.topic}</h1>
+          <CardDescription className="entry-card__description">
             {entry.data.description}
           </CardDescription>
-          <br />
         </CardHeader>
+        <CardSeparator></CardSeparator>
         <CardContent>
-          <article className="text-left">
-            <p className="whitespace-pre-line">{entry.data.content}</p>
+          <article className="entry-card__article">
+            <p className="written-content">{entry.data.content}</p>
           </article>
         </CardContent>
         <CardFooter>
-          <EntryLikeButton entryID={entry.id}></EntryLikeButton>
+          <EntryLikeButton></EntryLikeButton>
         </CardFooter>
       </Card>
-    </>
+      <CommentSection></CommentSection>
+    </div>
   );
 }
 
