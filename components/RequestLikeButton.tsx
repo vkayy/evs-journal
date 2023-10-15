@@ -33,7 +33,7 @@ export default function RequestLikeButton({
     }
     fetchLikes();
     checkLiked();
-  }, [liked]);
+  }, [liked, requestID, user]);
 
   function getButtonText(count: number): string {
     switch (count) {

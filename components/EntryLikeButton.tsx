@@ -33,7 +33,7 @@ export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
     }
     fetchLikes();
     checkLiked();
-  }, [liked]);
+  }, [liked, entryID, user]);
 
   function getButtonText(count: number): string {
     switch (count) {
