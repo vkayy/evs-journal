@@ -33,6 +33,12 @@
 
 /* dialog__close removed: ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2 */
 
+.shad-select__trigger {
+  @apply flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50
+}
+
+/* shad-select__trigger removed: ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 */
+
 @layer base {
   :root {
     --background: 56 62% 86%;
@@ -205,6 +211,10 @@ bg-stone-800: hsl(5 13% 16%) */
   @apply pt-12;
 }
 
+.main_journal {
+  @apply flex justify-around;
+}
+
 .main_loading {
   @apply flex justify-center items-center;
 }
@@ -255,10 +265,6 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .hero-section__text {
   @apply max-w-md;
-}
-
-.text {
-  @apply text-center sm:text-left;
 }
 
 .text_heading {
@@ -312,6 +318,10 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .general-section {
   @apply max-w-7xl min-h-fit mx-auto mb-[10vh] px-2 sm:px-6 mt-0 py-4 md:py-8;
+}
+
+.side-section {
+  @apply max-w-2xl min-h-fit mx-auto mb-[10vh] px-2 sm:px-6 mt-0 py-4 md:py-8
 }
 
 .general-section__text_heading {
@@ -477,4 +487,16 @@ bg-stone-800: hsl(5 13% 16%) */
 
 .request-card__button {
   @apply w-1/2 p-4;
+}
+
+.entry-card__button-container {
+  @apply flex justify-center items-center gap-4 mt-4;
+}
+
+.entry-card__button {
+  @apply w-full p-4;
+}
+
+.button_like {
+  @apply min-w-fit;
 }

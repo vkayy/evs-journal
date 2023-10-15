@@ -121,8 +121,6 @@ export async function getRequestLikeCount(requestID: string) {
 }
 
 export async function requestLikedByUser(requestID: string, user: User) {
-  const requestLikes = collection(db, Collection.requestLikes);
-
   let result: Boolean = false;
   let error = null;
 
@@ -131,6 +129,27 @@ export async function requestLikedByUser(requestID: string, user: User) {
       doc(db, Collection.requestLikes, user.email + requestID)
     );
     if (requestLike.data()) {
+      result = true;
+    }
+  } catch (e) {
+    error = e;
+    console.error("Error retrieving doc from database: ", error);
+  }
+
+  return { result, error };
+}
+
+export async function entryLikedByUser(entryID: string, user: User) {
+  const entryLikes = collection(db, Collection.entryLikes);
+
+  let result: Boolean = false;
+  let error = null;
+
+  try {
+    const entryLike = await getDoc(
+      doc(db, Collection.entryLikes, user.email + entryID)
+    );
+    if (entryLike.data()) {
       result = true;
     }
   } catch (e) {

@@ -1,20 +1,9 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import { LogIn, LogOut, PersonStanding, User, UserCircle2 } from "lucide-react";
 import { useAuthContext } from "./AuthProvider";
 import { useRouter } from "next/navigation";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { app } from "@/firebase/firebase.config";
-import { toast } from "./ui/use-toast";
 import LoggedInDropdown from "./LoggedInDropdown";
 import LoggedOutDropdown from "./LoggedOutDropdown";
 

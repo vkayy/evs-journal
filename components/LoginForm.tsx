@@ -38,7 +38,7 @@ const loginSchema = z.object({
       message: "not a valid email!",
     }),
   password: z.string().min(1, {
-    message: "please enter your password!"
+    message: "please enter your password!",
   }),
 });
 
@@ -58,8 +58,8 @@ export default function LoginForm() {
     setPersistence(auth, browserSessionPersistence)
       .then(() => {
         signInWithEmailAndPassword(auth, values.email, values.password)
-          .then((userCredential) => {
-            router.push("/");
+          .then(() => {
+            window.location.replace("/");
           })
           .catch((error) => {
             toast({

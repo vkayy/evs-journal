@@ -68,7 +68,6 @@ export default function SignupForm() {
     },
   });
 
-
   function onSubmit(values: z.infer<typeof signupSchema>) {
     const auth = getAuth(app);
     setPersistence(auth, browserSessionPersistence)
@@ -78,14 +77,11 @@ export default function SignupForm() {
             const user = userCredential.user;
             updateProfile(user, {
               displayName: values.displayName,
+            }).then(() => {
+              addUser(user.email!, values.displayName).then(() => {
+                window.location.replace("/");
+              });
             });
-            addUser(user.email!, values.displayName);
-            toast({
-              title: `what's up, ${values.displayName}?`,
-              description:
-                "your account was made successfully!",
-            });
-            router.push("/");
           })
           .catch((error: FirebaseError) => {
             if (error.code == "auth/email-already-in-use") {

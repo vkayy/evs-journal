@@ -81,17 +81,23 @@ export async function addComment(
 }
 
 export async function addEntry(
-  authors: string[],
-  title: string,
+  date: Date,
+  authors: string,
+  topic: string,
   description: string,
   content: string
 ) {
-  const { error } = await addDataAutoID(Collection.entries, {
-    authors,
-    title,
-    description,
-    content,
-  });
+  const { error } = await addDataSetID(
+    Collection.entries,
+    topic.split(" ").join("-"),
+    {
+      date,
+      authors,
+      topic,
+      description,
+      content,
+    }
+  );
 
   if (error) {
     toast({
@@ -104,7 +110,7 @@ export async function addEntry(
 }
 
 export async function addEntryLike(email: string, entryID: string) {
-  const { error } = await addDataAutoID(Collection.entryLikes, {
+  const { error } = await addDataSetID(Collection.entryLikes, email + entryID, {
     email,
     entryID,
   });
@@ -120,10 +126,14 @@ export async function addEntryLike(email: string, entryID: string) {
 }
 
 export async function addCommentLike(email: string, commentID: string) {
-  const { error } = await addDataAutoID(Collection.commentLikes, {
-    email,
-    commentID,
-  });
+  const { error } = await addDataSetID(
+    Collection.commentLikes,
+    email + commentID,
+    {
+      email,
+      commentID,
+    }
+  );
 
   if (error) {
     toast({

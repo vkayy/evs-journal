@@ -1,3 +1,5 @@
+"use client";
+
 import { HeartIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useAuthContext } from "./AuthProvider";
@@ -8,13 +10,11 @@ import { deleteDocument } from "@/firebase/deleteData";
 import { Collection } from "@/firebase/firebase.config";
 import { useRouter } from "next/navigation";
 
-interface RequestLikeButtonProps {
-  requestID: string;
+interface EntryLikeButtonProps {
+  entryID: string;
 }
 
-export default function RequestLikeButton({
-  requestID,
-}: RequestLikeButtonProps) {
+export default function EntryLikeButton({ entryID }: EntryLikeButtonProps) {
   const { user } = useAuthContext();
   const [likeCount, setLikeCount] = useState<number>(0);
   const [liked, setLiked] = useState<Boolean>(false);
@@ -23,12 +23,12 @@ export default function RequestLikeButton({
 
   useEffect(() => {
     async function fetchLikes() {
-      const { result } = await getRequestLikeCount(requestID);
+      const { result } = await getRequestLikeCount(entryID);
       setLikeCount(result || 0);
       setButtonText(getButtonText(result || 0));
     }
     async function checkLiked() {
-      const { result } = await requestLikedByUser(requestID, user!);
+      const { result } = await requestLikedByUser(entryID, user!);
       setLiked(result);
     }
     fetchLikes();
@@ -49,11 +49,11 @@ export default function RequestLikeButton({
   async function handleClick() {
     if (user) {
       if (liked) {
-        await deleteDocument(Collection.requestLikes, user!.email! + requestID);
+        await deleteDocument(Collection.requestLikes, user!.email! + entryID);
         setLikeCount(likeCount - 1);
         setButtonText(getButtonText(likeCount));
       } else {
-        await addRequestLike(user!.email!, requestID);
+        await addRequestLike(user!.email!, entryID);
         setLikeCount(likeCount + 1);
         setButtonText(getButtonText(likeCount));
       }
@@ -66,8 +66,8 @@ export default function RequestLikeButton({
   return (
     <>
       <Button
-        className="button button_like"
-        variant="outline"
+        className="button button_like mt-4"
+        variant="default"
         onClick={handleClick}
       >
         <HeartIcon

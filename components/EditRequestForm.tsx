@@ -46,7 +46,6 @@ const requestSchema = z.object({
 export default function EditRequestForm() {
   const { id } = useParams();
   const { user } = useAuthContext();
-  const router = useRouter();
   const [doc, setDoc] = useState<DocObject | null>(null);
   const [topicTitle, setTopicTitle] = useState<string>("");
   const [topicDescription, setTopicDescription] = useState<string>("");
