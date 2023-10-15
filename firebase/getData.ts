@@ -10,7 +10,6 @@ import {
 } from "firebase/firestore";
 import { Collection, db } from "./firebase.config";
 import { User } from "firebase/auth";
-import { request } from "http";
 
 export interface DocObject {
   id: string;
