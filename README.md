@@ -1,6 +1,6 @@
 # ev's journal
 
-this web app is currently in development, but is functional in regards to posting and liking blogs and requests, with user authentication
+this web app is currently in development, but is functional in regards to posting and liking blogs and requests, with user authentication.
 
 ## languages, frameworks and libraries used
 
@@ -11,9 +11,11 @@ this web app is currently in development, but is functional in regards to postin
 - firebase
 - shadcn ui
 
-## purpose
+## motives
 
 ev's journal is a passion project between my partner and i, where we aim to share our lessons in stoicism, relationships, and self-improvement with the rest of the world.
+
+while being interested in tech, i've always had an affinity for philosophy and psychology, and this is one outlet for that.
 
 ## social links
 
