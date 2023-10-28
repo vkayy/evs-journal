@@ -1,4 +1,6 @@
-# freelance web application for ev's journal, currently in development.
+# ev's journal
+
+this web app is currently in development, but is functional in regards to posting and liking blogs and requests, with user authentication
 
 ## languages, frameworks and libraries used
 
