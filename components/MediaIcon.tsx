@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import evIcon from "../app/apple-touch-icon.png";
+import evIcon from "../app/apple-icon.png";
 
 interface MediaIconProps {
   title: string;
