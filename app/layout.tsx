@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     title: "ev's journal",
+    statusBarStyle: "black",
   },
 };
 
