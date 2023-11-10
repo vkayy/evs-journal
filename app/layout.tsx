@@ -18,7 +18,10 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
-  }
+  },
+  appleWebApp: {
+    title: "ev's journal",
+  },
 };
 
 export default function RootLayout({
