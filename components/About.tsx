@@ -52,7 +52,7 @@ function About() {
         ></AboutCard>
         <AboutCard
           name="v"
-          description="computing undergraduate - aspiring software developer"
+          description="computing undergraduate - fullstack developer"
           about={
             <p>
               what&apos;s up? i&apos;m v, and i&apos;m really grateful to have
