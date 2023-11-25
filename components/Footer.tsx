@@ -51,7 +51,7 @@ function Footer() {
         </article>
       </section>
       <p className="footer-section__text footer-section__text_paragraph">
-        &copy; {new Date().getFullYear()} ev's journal. all rights reserved.
+        &copy; {new Date().getFullYear()} ev&apos;s journal. all rights reserved.
       </p>
     </footer>
   );
