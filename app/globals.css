@@ -366,8 +366,10 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer {
-  @apply w-full h-[14rem] md:h-[18rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)] mt-auto;
+  @apply w-full h-[12rem] md:h-[14rem] py-6 bg-darkyellow/50 dark:bg-[hsl(24_15%_12%)] mt-auto;
 }
+
+/* when mailing list is added, h-14rem, md:h-18rem */
 
 .footer-section {
   @apply md:max-w-7xl flex mx-auto;
@@ -378,8 +380,10 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer-section__text_heading {
-  @apply mb-4 md:mb-8 text-2xl md:text-4xl text-center font-bold;
+  @apply mb-2 md:mb-2 text-2xl md:text-4xl text-center font-bold;
 }
+
+/* when mailing list is added, mb-8 */
 
 .footer-section__text_paragraph {
   @apply text-stone-600/80 dark:text-stone-400/80 text-base md:text-lg text-center;
@@ -390,7 +394,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .footer-section__social-links {
-  @apply flex justify-center mt-4 md:mt-10;
+  @apply flex justify-center mb-2 md:my-3;
 }
 
 .footer-section__social {

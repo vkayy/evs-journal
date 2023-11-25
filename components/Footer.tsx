@@ -21,7 +21,7 @@ function Footer() {
           <h2 className="footer-section__text footer-section__text_heading">
             join our community!
           </h2>
-          <MailingListForm></MailingListForm>
+          {/* <MailingListForm></MailingListForm> */}
           <div className="footer-section__social-links">
             <MediaIcon
               title="@evsjournal"
@@ -50,6 +50,9 @@ function Footer() {
           </div>
         </article>
       </section>
+      <p className="footer-section__text footer-section__text_paragraph">
+        &copy; {new Date().getFullYear()} ev's journal. all rights reserved.
+      </p>
     </footer>
   );
 }
