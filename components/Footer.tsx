@@ -30,9 +30,9 @@ function Footer() {
               content={<p>discover our latest updates on instagram!</p>}
             ></MediaIcon>
             <MediaIcon
-              title="@evsjournal"
+              title="@evs.journal"
               icon={faTiktok}
-              link=""
+              link="https://tiktok.com/@evs.journal"
               content={<p>catch up with our journey on tiktok!</p>}
             ></MediaIcon>
             <MediaIcon
