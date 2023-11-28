@@ -272,7 +272,7 @@ bg-stone-800: hsl(5 13% 16%) */
 }
 
 .text_paragraph {
-  @apply text-xl text-stone-600 dark:text-stone-400;
+  @apply text-xl text-stone-600 dark:text-stone-400 text-center;
 }
 
 .text-small_paragraph {
