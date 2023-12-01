@@ -4,6 +4,12 @@ https://evsjournal.vercel.app
 
 this web app is currently in development, but is functional in regards to posting and liking blogs and requests, with user authentication.
 
+## instructions
+
+at the moment, you can simply open the link and traverse the blog as you please.
+
+note that, in order to interact, you have to create an account using the popup on the top-right.
+
 ## languages, frameworks and libraries used
 
 - react (typescript)
