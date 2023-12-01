@@ -8,7 +8,9 @@ this web app is currently in development, but is functional in regards to postin
 
 at the moment, you can simply open the link and traverse the blog as you please.
 
-note that, in order to interact, you have to create an account using the popup on the top-right.
+in order to interact, you have to create an account using the popup on the top-right. attempts to interact will also redirect you to logging in.
+
+note that the social media pages in the footer have not been created yet (besides tiktok). we'll kick off soon!
 
 ## languages, frameworks and libraries used
 
