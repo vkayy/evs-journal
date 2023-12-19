@@ -17,9 +17,9 @@ note that the social media pages in the footer have not been created yet (beside
 - react (typescript)
 - next.js
 - tailwind css
+- shadcn
 - node.js
 - firebase
-- shadcn ui
 
 ## motives
 
